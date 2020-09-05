@@ -5,18 +5,18 @@
  * @format
  * @flow strict-local
  */
-import 'react-native-gesture-handler';
-import React, { Component } from 'react';
-import {StyleProvider,Footer,FooterTab,Button,Text} from "native-base";
-import HomeScreen from './src/layouts/HomeScreen.js';
-import SettingsScreen from './src/layouts/SettingsScreen.js';
-import AboutScreen from './src/layouts/AboutScreen.js';
-import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
+import { StyleProvider } from "native-base";
+import React from 'react';
+import 'react-native-gesture-handler';
 import Icon from 'react-native-ionicons';
+import SplashScreen from 'react-native-splash-screen';
 import getTheme from './native-base-theme/components';
 import commonColor from './native-base-theme/variables/commonColor';
-import SplashScreen from 'react-native-splash-screen';
+import AboutScreen from './src/layouts/AboutScreen.js';
+import HomeScreen from './src/layouts/HomeScreen.js';
+import SettingsScreen from './src/layouts/SettingsScreen.js';
 
 const Tab = createBottomTabNavigator();
 
