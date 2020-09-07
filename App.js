@@ -7,7 +7,7 @@
  */
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { StyleProvider } from "native-base";
+import { StyleProvider, Tab, Tabs, Header, Left, Body, Right, Container, Button, Title, TabHeading, Text } from "native-base";
 import React from 'react';
 import 'react-native-gesture-handler';
 import Icon from 'react-native-ionicons';
@@ -18,13 +18,22 @@ import AboutScreen from './src/layouts/AboutScreen.js';
 import HomeScreen from './src/layouts/HomeScreen.js';
 import SettingsScreen from './src/layouts/SettingsScreen.js';
 
-const Tab = createBottomTabNavigator();
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isReady: false,
+      button_1: {
+        key: 'button_1',
+        textValue: 'Yes',
+        backgroundColor: '#2ecc71'
+      },
+      button_2: {
+        key: 'button_2',
+        textValue: 'No',
+        backgroundColor: '#e74c3c'
+      }
     };
   }
 
@@ -37,49 +46,28 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <StyleProvider style={getTheme(commonColor)}>
+      <Container>
+        <Tabs tabBarUnderlineStyle={{ borderBottomWidth:4 }}>
+          <Tab heading={<TabHeading style={{ backgroundColor: '#2c3e50' }}>
+            <Text style={{ color: '#ffffff' }}>Home</Text>
+          </TabHeading>}>
+            <HomeScreen button_1={this.state.button_1} button_2={this.state.button_2} />
+          </Tab>
+          <Tab
+            heading={<TabHeading style={{ backgroundColor: '#2c3e50' }}>
+              <Text style={{ color: '#ffffff' }}>Settings</Text>
+            </TabHeading>}>
+            <SettingsScreen button_1={this.state.button_1} button_2={this.state.button_2} />
+          </Tab>
+          <Tab
+            heading={<TabHeading style={{ backgroundColor: '#2c3e50' }}>
+              <Text style={{ color: '#ffffff' }}>About</Text>
+            </TabHeading>}><AboutScreen />
+          </Tab>
+        </Tabs>
+        
 
-        <NavigationContainer>
-          <Tab.Navigator
-            screenOptions={({ route }) => ({
-              tabBarIcon: ({ focused, color, size }) => {
-                let iconName;
-
-                if (route.name === 'Home') {
-                  iconName = "md-home";
-                } else if (route.name === 'Settings') {
-                  iconName = "md-settings";
-                } else if (route.name === 'About') {
-                  iconName = "md-information-circle";
-                }
-
-                // You can return any component that you like here!
-                return <Icon name={iconName} color="#ffffff" />;
-              },
-            })}
-            tabBarOptions={{
-              indicatorStyle: {
-                height: null,
-                top: 0,
-                backgroundColor: 'blue',
-                borderRadius:10
-            },
-              activeBackgroundColor: '#415b76',
-              style: {
-                backgroundColor: '#2c3e50',
-                borderTopWidth: 1,
-                borderTopColor: '#D3D3D3'
-              },
-              showLabel: false,
-
-            }}
-          >
-            <Tab.Screen name="Home" component={HomeScreen} accessibilityLabel="Home Screen"/>
-            <Tab.Screen name="Settings" component={SettingsScreen} accessibilityLabel="Settings Screen"/>
-            <Tab.Screen name="About" component={AboutScreen} accessibilityLabel="About Screen"/>
-          </Tab.Navigator>
-        </NavigationContainer>
-      </StyleProvider >
+      </Container>
     );
   }
 }

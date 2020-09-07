@@ -12,9 +12,7 @@ export default class AboutScreen extends React.Component {
       <Container>
         <Content>
           <Card>
-            <CardItem cardBody>
-              <Image source={require('../assets/images/working.png')} style={{ height: 200, width: null, flex: 1 }} />
-            </CardItem>
+        
             <CardItem>
               <Body>
                 <H1>SpeakYourMind Foundation</H1>

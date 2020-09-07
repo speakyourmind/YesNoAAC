@@ -6,7 +6,8 @@ import {
 import React from "react";
 import { TextInput } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
-const BUTTON_1_TEXT_KEY = 'button 1 text'
+
+const BUTTON_1 = 'button 1 text'
 
 export default class SettingsScreen extends React.Component {
   state = {
@@ -18,7 +19,7 @@ export default class SettingsScreen extends React.Component {
 
   loadAsyncData = async () => {
     try {
-      const button1Text = await AsyncStorage.getItem(BUTTON_1_TEXT_KEY)
+      const button1Text = await AsyncStorage.getItem(BUTTON_1)
       if (button1Text !== null) {
         this.setState({ button1Text: JSON.parse(button1Text) });
       }
@@ -29,22 +30,17 @@ export default class SettingsScreen extends React.Component {
 
   storeButton1Text = async (key, button1Text) => {
     try {
-      await AsyncStorage.setItem(BUTTON_1_TEXT_KEY, JSON.stringify(button1Text))
-     // this.setState({ button1Text });
+      await AsyncStorage.setItem(BUTTON_1, JSON.stringify(button1Text))
+      // this.setState({ button1Text });
     } catch (e) {
       console.log(e);
     }
   }
-  
+
   render() {
     return (
       <Container>
-        <Header>
-          <Body>
-            <Title>Settings</Title>
-          </Body>
-          <Right />
-        </Header>
+      
         <Content>
           <Form>
             <Separator>
@@ -56,15 +52,13 @@ export default class SettingsScreen extends React.Component {
                 value={this.state.button1Text}
                 onChangeText={(button1Text) => {
                   this.setState({ button1Text });
-                  this.storeButton1Text(BUTTON_1_TEXT_KEY, button1Text);
+                  this.storeButton1Text(BUTTON_1, button1Text);
                   console.log(button1Text)
                 }}
               />
             </Item>
           </Form>
         </Content>
-
-
       </Container>
     );
   }
