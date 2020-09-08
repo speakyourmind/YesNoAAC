@@ -1,46 +1,36 @@
 import {
   Body, Container, Content, Form, Header,
-  Item, Label, Right,
+  Item, Label, Right, Left, Button,
   Separator, Text, Title
 } from "native-base";
 import React from "react";
 import { TextInput } from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
+import Icon from 'react-native-ionicons';
+import  { SettingsContext } from '../../SettingsContext';
 
-const BUTTON_1 = 'button 1 text'
 
 export default class SettingsScreen extends React.Component {
-  state = {
-    button1Text: ''
-  }
-  componentDidMount() {
-    this.loadAsyncData();
-  }
-
-  loadAsyncData = async () => {
-    try {
-      const button1Text = await AsyncStorage.getItem(BUTTON_1)
-      if (button1Text !== null) {
-        this.setState({ button1Text: JSON.parse(button1Text) });
-      }
-    } catch (e) {
-      console.log(e)
-    }
-  }
-
-  storeButton1Text = async (key, button1Text) => {
-    try {
-      await AsyncStorage.setItem(BUTTON_1, JSON.stringify(button1Text))
-      // this.setState({ button1Text });
-    } catch (e) {
-      console.log(e);
-    }
-  }
 
   render() {
     return (
       <Container>
-      
+        <Header>
+          <Left>
+            <Button transparent onPress={() =>
+              this.props.navigation.navigate('Home')
+            }>
+              <Icon name='ios-arrow-back' color='#ffffff' />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Settings</Title>
+          </Body>
+          <Right>
+            <Button transparent>
+              <Icon name='ios-information-circle-outline' color='#ffffff' />
+            </Button>
+          </Right>
+        </Header>
         <Content>
           <Form>
             <Separator>
@@ -49,11 +39,21 @@ export default class SettingsScreen extends React.Component {
             <Item fixedLabel>
               <Label>Title</Label>
               <TextInput
-                value={this.state.button1Text}
+                value={this.context.button_1.textValue}
                 onChangeText={(button1Text) => {
-                  this.setState({ button1Text });
-                  this.storeButton1Text(BUTTON_1, button1Text);
-                  console.log(button1Text)
+                  this.context.updateButton_1(button1Text);
+                }}
+              />
+            </Item>
+            <Separator>
+              <Text>BUTTON 2</Text>
+            </Separator>
+            <Item fixedLabel>
+              <Label>Title</Label>
+              <TextInput
+                value={this.context.button_2.textValue}
+                onChangeText={(button2Text) => {
+                  this.context.updateButton_2(button2Text);
                 }}
               />
             </Item>
@@ -63,3 +63,4 @@ export default class SettingsScreen extends React.Component {
     );
   }
 }
+SettingsScreen.contextType = SettingsContext;
