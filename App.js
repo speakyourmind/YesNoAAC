@@ -31,11 +31,13 @@ export default class App extends React.Component {
       button_1: {
         key: 'button_1',
         textValue: 'YES',
+        speakText: 'YES',
         backgroundColor: '#2ecc71'
       },
       button_2: {
         key: 'button_2',
         textValue: 'NO',
+        speakText: 'NO',
         backgroundColor: '#e74c3c'
       }
     };
@@ -69,7 +71,7 @@ export default class App extends React.Component {
   storeButton1 = async (key, button1) => {
     try {
       await AsyncStorage.setItem(BUTTON_1_KEY, JSON.stringify(button1))
-     // this.setState({ button1});
+      // this.setState({ button1});
     } catch (e) {
       console.log(e);
     }
@@ -77,34 +79,22 @@ export default class App extends React.Component {
   storeButton2 = async (key, button2) => {
     try {
       await AsyncStorage.setItem(BUTTON_2_KEY, JSON.stringify(button2))
-     // this.setState({ button2});
+      // this.setState({ button2});
     } catch (e) {
       console.log(e);
     }
   }
 
-  updateButton_1 = (button1) => {
-    const button_1_data = {
-      key: 'button_1',
-      textValue: button1,
-      backgroundColor: '#2ecc71'
-    }
+  updateButton_1 = (button_1_data) => {
     // Finally, update the app state
     this.setState({ button_1: button_1_data });
-    this.storeButton1(BUTTON_1_KEY,button_1_data);
+    this.storeButton1(BUTTON_1_KEY, this.state.button_1);
   }
-
-  updateButton_2 = (button2) => {
-    const button_2_data = {
-      key: 'button_2',
-      textValue: button2,
-      backgroundColor: '#e74c3c'
-    }
+  updateButton_2 = (button_2_data) => {
     // Finally, update the app state
     this.setState({ button_2: button_2_data });
-    this.storeButton2(BUTTON_2_KEY,button_2_data);
+    this.storeButton1(BUTTON_2_KEY, this.state.button_2);
   }
-
   render() {
     return (
       <SettingsContext.Provider value={{

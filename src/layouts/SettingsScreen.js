@@ -6,7 +6,7 @@ import {
 import React from "react";
 import { TextInput } from 'react-native';
 import Icon from 'react-native-ionicons';
-import  { SettingsContext } from '../../SettingsContext';
+import { SettingsContext } from '../../SettingsContext';
 
 
 export default class SettingsScreen extends React.Component {
@@ -31,8 +31,8 @@ export default class SettingsScreen extends React.Component {
           <Right>
             <Button transparent>
               <Icon name='ios-information-circle-outline' color='#ffffff' onPress={() =>
-              this.props.navigation.navigate('About')
-            }/>
+                this.props.navigation.navigate('About')
+              } />
             </Button>
           </Right>
         </Header>
@@ -45,8 +45,21 @@ export default class SettingsScreen extends React.Component {
               <Label>Title</Label>
               <TextInput
                 value={this.context.button_1.textValue}
-                onChangeText={(button1Text) => {
-                  this.context.updateButton_1(button1Text);
+                onChangeText={(text) => {
+                  var button_1 = { ...this.context.button_1 }
+                  button_1.textValue = text;
+                  this.context.updateButton_1(button_1);
+                }}
+              />
+            </Item>
+            <Item fixedLabel>
+              <Label>Speak Text</Label>
+              <TextInput
+                value={this.context.button_1.speakText}
+                onChangeText={(text) => {
+                  var button_1 = { ...this.context.button_1 }
+                  button_1.speakText = text;
+                  this.context.updateButton_1(button_1);
                 }}
               />
             </Item>
@@ -58,7 +71,20 @@ export default class SettingsScreen extends React.Component {
               <TextInput
                 value={this.context.button_2.textValue}
                 onChangeText={(button2Text) => {
-                  this.context.updateButton_2(button2Text);
+                  var button_2 = { ...this.context.button_2 }
+                  button_2.textValue = button2Text;
+                  this.context.updateButton_2(button_2);
+                }}
+              />
+            </Item>
+            <Item fixedLabel>
+              <Label>Speak Text</Label>
+              <TextInput
+                value={this.context.button_2.speakText}
+                onChangeText={(text) => {
+                  var button_2 = { ...this.context.button_2 }
+                  button_2.speakText = text;
+                  this.context.updateButton_2(button_2);
                 }}
               />
             </Item>
