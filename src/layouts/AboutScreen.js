@@ -1,7 +1,8 @@
-import { Body, Card, CardItem, Container, Content, H1, List, ListItem, Right, Text } from "native-base";
+import { Body, Card, CardItem, Container, Content, H1, List, ListItem, Right, Text, Header,Left,Button, Title } from "native-base";
 import React from "react";
 import { Image } from 'react-native';
 import OpenURLButton from '../components/OpenURLButton.js';
+import Icon from 'react-native-ionicons';
 
 const supportedURL = "https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=QY6S73LW86FA8&source=url";
 
@@ -21,6 +22,7 @@ export default class AboutScreen extends React.Component {
           <Body>
             <Title>About</Title>
           </Body>
+          <Right></Right>
         </Header>
         <Content>
           <Card>

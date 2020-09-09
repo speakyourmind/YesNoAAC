@@ -10,7 +10,10 @@ import  { SettingsContext } from '../../SettingsContext';
 
 
 export default class SettingsScreen extends React.Component {
+  constructor(props) {
+    super(props);
 
+  }
   render() {
     return (
       <Container>
@@ -27,7 +30,9 @@ export default class SettingsScreen extends React.Component {
           </Body>
           <Right>
             <Button transparent>
-              <Icon name='ios-information-circle-outline' color='#ffffff' />
+              <Icon name='ios-information-circle-outline' color='#ffffff' onPress={() =>
+              this.props.navigation.navigate('About')
+            }/>
             </Button>
           </Right>
         </Header>

@@ -30,12 +30,12 @@ export default class App extends React.Component {
       isReady: false,
       button_1: {
         key: 'button_1',
-        textValue: 'Yes',
+        textValue: 'YES',
         backgroundColor: '#2ecc71'
       },
       button_2: {
         key: 'button_2',
-        textValue: 'No',
+        textValue: 'NO',
         backgroundColor: '#e74c3c'
       }
     };

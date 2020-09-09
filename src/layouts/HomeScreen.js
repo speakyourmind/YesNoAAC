@@ -30,7 +30,9 @@ export default class HomeScreen extends React.Component {
           </Body>
           <Right>
             <Button transparent>
-              <Icon name='ios-information-circle-outline' color='#ffffff' />
+              <Icon name='ios-information-circle-outline' color='#ffffff' onPress={() =>
+              this.props.navigation.navigate('About')
+            } />
             </Button>
           </Right>
         </Header>
