@@ -17,10 +17,10 @@ export default class SuperButton extends Component {
     render() {
         return (
             <View style={{ flexGrow: 1 }} >
-                <Button full info onChange={this.props.onChange}
+                <Button full onChange={this.props.onChange}
                     style={{ margin: 10, flexGrow: 1, backgroundColor: this.props.backgroundColor }}
                     onPress={() => Tts.speak(this.props.speakText)}>
-                    <Text style={{ fontSize: this.props.fontSize }}>
+                    <Text style={{ fontSize: this.props.fontSize,color:this.props.fontColor }}>
                         {this.props.textValue}
                     </Text>
                 </Button>

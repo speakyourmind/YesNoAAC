@@ -1,8 +1,8 @@
 import { Container, Header, Left, Body, Right, Button, Title } from "native-base";
 import React from "react";
-import { Grid, Row } from 'react-native-easy-grid';
+import { Grid, Row,Col} from 'react-native-easy-grid';
 import SuperButton from '../components/SuperButton.js';
-import  { SettingsContext } from '../../SettingsContext';
+import { SettingsContext } from '../../SettingsContext';
 import Icon from 'react-native-ionicons';
 
 export default class HomeScreen extends React.Component {
@@ -15,6 +15,49 @@ export default class HomeScreen extends React.Component {
   }
 
   render() {
+    let grid;
+    if (this.context.direction==='row') {
+      grid =
+        <Grid>
+          <Row>
+            <SuperButton key={this.context.button_1.key}
+              textValue={this.context.button_1.textValue}
+              speakText={this.context.button_1.speakText}
+              fontColor={this.context.button_1.fontColor}
+              backgroundColor={this.context.button_1.backgroundColor}
+              fontSize={100} />
+          </Row>
+          <Row>
+            <SuperButton key={this.context.button_2.key}
+              textValue={this.context.button_2.textValue}
+              speakText={this.context.button_2.speakText}
+              fontColor={this.context.button_2.fontColor}
+              backgroundColor={this.context.button_2.backgroundColor}
+              fontSize={100} />
+          </Row>
+
+        </Grid>;
+    } else {
+      grid = <Grid>
+        <Col>
+          <SuperButton key={this.context.button_1.key}
+            textValue={this.context.button_1.textValue}
+            speakText={this.context.button_1.speakText}
+            fontColor={this.context.button_1.fontColor}
+            backgroundColor={this.context.button_1.backgroundColor}
+            fontSize={100} />
+        </Col>
+        <Col>
+          <SuperButton key={this.context.button_2.key}
+            textValue={this.context.button_2.textValue}
+            speakText={this.context.button_2.speakText}
+            fontColor={this.context.button_2.fontColor}
+            backgroundColor={this.context.button_2.backgroundColor}
+            fontSize={100} />
+        </Col>
+
+      </Grid>;
+    }
     return (
       <Container>
         <Header>
@@ -31,28 +74,12 @@ export default class HomeScreen extends React.Component {
           <Right>
             <Button transparent>
               <Icon name='ios-information-circle-outline' color='#ffffff' onPress={() =>
-              this.props.navigation.navigate('About')
-            } />
+                this.props.navigation.navigate('About')
+              } />
             </Button>
           </Right>
         </Header>
-        <Grid>
-          <Row>
-            <SuperButton key={this.context.button_1.key}
-              textValue={this.context.button_1.textValue}
-              speakText={this.context.button_1.speakText}
-              backgroundColor={this.context.button_1.backgroundColor}
-              fontSize={100} />
-          </Row>
-          <Row>
-            <SuperButton key={this.context.button_2.key}
-              textValue={this.context.button_2.textValue}
-              speakText={this.context.button_2.speakText}
-              backgroundColor={this.context.button_2.backgroundColor}
-              fontSize={100} />
-          </Row>
-
-        </Grid>
+        {grid}
       </Container>
     );
   }

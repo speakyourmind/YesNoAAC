@@ -21,6 +21,7 @@ import AboutScreen from './src/layouts/AboutScreen.js';
 
 const BUTTON_1_KEY = 'button_1'
 const BUTTON_2_KEY = 'button_2'
+const DIRECTION_KEY = 'direction'
 const Stack = createStackNavigator();
 
 export default class App extends React.Component {
@@ -28,17 +29,20 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       isReady: false,
+      direction:'row',
       button_1: {
         key: 'button_1',
         textValue: 'YES',
         speakText: 'YES',
-        backgroundColor: '#2ecc71'
+        fontColor: '#ffffff',
+        backgroundColor: '#1F894B'
       },
       button_2: {
         key: 'button_2',
         textValue: 'NO',
         speakText: 'NO',
-        backgroundColor: '#e74c3c'
+        fontColor: '#ffffff',
+        backgroundColor: '#c0392b'
       }
     };
   }
@@ -53,55 +57,61 @@ export default class App extends React.Component {
 
   loadAsyncData = async () => {
     try {
+      const direction = await AsyncStorage.getItem(DIRECTION_KEY)
+      if (direction !== null) {
+        this.setState({ direction: JSON.parse(direction) });
+      }
       const button1 = await AsyncStorage.getItem(BUTTON_1_KEY)
       if (button1 !== null) {
         this.setState({ button_1: JSON.parse(button1) });
-        console.log(button1);
       }
       const button2 = await AsyncStorage.getItem(BUTTON_2_KEY)
       if (button2 !== null) {
         this.setState({ button_2: JSON.parse(button2) });
-        console.log(button2);
       }
     } catch (e) {
       console.log(e)
     }
   }
 
-  storeButton1 = async (key, button1) => {
+  storeAsync = async (key, button) => {
     try {
-      await AsyncStorage.setItem(BUTTON_1_KEY, JSON.stringify(button1))
+      await AsyncStorage.setItem(key, JSON.stringify(button))
       // this.setState({ button1});
     } catch (e) {
       console.log(e);
     }
   }
-  storeButton2 = async (key, button2) => {
-    try {
-      await AsyncStorage.setItem(BUTTON_2_KEY, JSON.stringify(button2))
-      // this.setState({ button2});
-    } catch (e) {
-      console.log(e);
-    }
-  }
 
+  
+  updateDirection = (direction_data) => {
+    this.setState({ direction: direction_data });
+    this.storeAsync(DIRECTION_KEY, this.state.direction);
+  }
   updateButton_1 = (button_1_data) => {
-    // Finally, update the app state
     this.setState({ button_1: button_1_data });
-    this.storeButton1(BUTTON_1_KEY, this.state.button_1);
+    this.storeAsync(BUTTON_1_KEY, this.state.button_1);
   }
   updateButton_2 = (button_2_data) => {
-    // Finally, update the app state
     this.setState({ button_2: button_2_data });
-    this.storeButton1(BUTTON_2_KEY, this.state.button_2);
+    this.storeAsync(BUTTON_2_KEY, this.state.button_2);
   }
+
+  updateButton=(key,button_state,button_data)=>{
+    this.setState({button_state:button_data});
+    this.storeAsync(key, button_state);
+   
+  }
+
   render() {
     return (
       <SettingsContext.Provider value={{
         button_1: this.state.button_1,
         updateButton_1: this.updateButton_1,
         button_2: this.state.button_2,
-        updateButton_2: this.updateButton_2
+        updateButton_2: this.updateButton_2,
+        direction:this.state.direction,
+        updateDirection: this.updateDirection,
       }}>
         <StyleProvider style={getTheme(commonColor)}>
           <NavigationContainer>
