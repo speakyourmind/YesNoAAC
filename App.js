@@ -29,20 +29,22 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       isReady: false,
-      direction:'row',
+      direction: 'row',
       button_1: {
         key: 'button_1',
         textValue: 'YES',
         speakText: 'YES',
         fontColor: '#ffffff',
-        backgroundColor: '#1F894B'
+        backgroundColor: '#1F894B',
+        fontSize: 100,
       },
       button_2: {
         key: 'button_2',
         textValue: 'NO',
         speakText: 'NO',
         fontColor: '#ffffff',
-        backgroundColor: '#c0392b'
+        backgroundColor: '#c0392',
+        fontSize: 100,
       }
     };
   }
@@ -83,7 +85,6 @@ export default class App extends React.Component {
     }
   }
 
-  
   updateDirection = (direction_data) => {
     this.setState({ direction: direction_data });
     this.storeAsync(DIRECTION_KEY, this.state.direction);
@@ -97,10 +98,10 @@ export default class App extends React.Component {
     this.storeAsync(BUTTON_2_KEY, this.state.button_2);
   }
 
-  updateButton=(key,button_state,button_data)=>{
-    this.setState({button_state:button_data});
+  updateButton = (key, button_state, button_data) => {
+    this.setState({ button_state: button_data });
     this.storeAsync(key, button_state);
-   
+
   }
 
   render() {
@@ -110,7 +111,7 @@ export default class App extends React.Component {
         updateButton_1: this.updateButton_1,
         button_2: this.state.button_2,
         updateButton_2: this.updateButton_2,
-        direction:this.state.direction,
+        direction: this.state.direction,
         updateDirection: this.updateDirection,
       }}>
         <StyleProvider style={getTheme(commonColor)}>

@@ -24,16 +24,16 @@ export default class HomeScreen extends React.Component {
               textValue={this.context.button_1.textValue}
               speakText={this.context.button_1.speakText}
               fontColor={this.context.button_1.fontColor}
-              backgroundColor={this.context.button_1.backgroundColor}
-              fontSize={100} />
+              backgroundColor={this.context.button_1.backgroundColor} 
+              fontSize={80}/>
           </Row>
           <Row>
             <SuperButton key={this.context.button_2.key}
               textValue={this.context.button_2.textValue}
               speakText={this.context.button_2.speakText}
               fontColor={this.context.button_2.fontColor}
-              backgroundColor={this.context.button_2.backgroundColor}
-              fontSize={100} />
+              backgroundColor={this.context.button_2.backgroundColor} 
+              fontSize={80}/>
           </Row>
 
         </Grid>;
