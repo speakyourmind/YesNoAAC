@@ -60,6 +60,7 @@ export default class HomeScreen extends React.Component {
                 <ListItem>
                   <Body>
                     <Label>Title</Label>
+                <Text note>Text to be displayed and spoken by the button</Text>
                     <TextInput
                       style={{
                         marginTop: 10,
@@ -172,7 +173,7 @@ export default class HomeScreen extends React.Component {
           speakText={this.context.button_1.speakText}
           fontColor={this.context.button_1.fontColor}
           backgroundColor={this.context.button_1.backgroundColor}
-          fontSize={80} />
+          fontSize={80} disabled={this.state.editMode}/>
         {this.state.editMode &&
           <Fab style={{ backgroundColor: '#2c3e50' }} direction="up" position="bottomRight" visible="" onPress={() => {
             this.setState({ modal1Visible: true });
@@ -328,7 +329,7 @@ export default class HomeScreen extends React.Component {
           speakText={this.context.button_2.speakText}
           fontColor={this.context.button_2.fontColor}
           backgroundColor={this.context.button_2.backgroundColor}
-          fontSize={80} />
+          fontSize={80} disabled={this.state.editMode}/>
         {this.state.editMode &&
           <Fab style={{ backgroundColor: '#2c3e50' }} direction="up" position="bottomRight" visible="" onPress={() => {
             this.setState({ modal2Visible: true });
@@ -389,9 +390,7 @@ export default class HomeScreen extends React.Component {
           </Header>
         }
         {this.state.editMode &&
-          <Header >
-            <Left>
-            </Left>
+          <Header style={{backgroundColor:'#277CB4'}} >
             <Body>
               <Title>Editing Screen</Title>
             </Body>
