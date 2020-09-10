@@ -52,9 +52,10 @@ export default class App extends React.Component {
   async componentDidMount() {
     // do stuff while splash screen is shown
     // After having done stuff (such as async tasks) hide the splash screen
-    SplashScreen.hide();
     this.loadAsyncData();
     this.setState({ isReady: true });
+    SplashScreen.hide();
+    
   }
 
   loadAsyncData = async () => {
