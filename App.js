@@ -43,7 +43,7 @@ export default class App extends React.Component {
         textValue: 'NO',
         speakText: 'NO',
         fontColor: '#ffffff',
-        backgroundColor: '#c0392',
+        backgroundColor: '#c0392b',
         fontSize: 100,
       }
     };
