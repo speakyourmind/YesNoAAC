@@ -23,6 +23,8 @@ export default class HomeScreen extends React.Component {
     }
   }
   render() {
+    var button_1 = { ...this.context.button_1 }
+    var button_2 = { ...this.context.button_2 }
     let button_1_view =
       <View style={{ flexGrow: 1 }} >
         <Modal 
@@ -73,9 +75,8 @@ export default class HomeScreen extends React.Component {
                       value={this.context.button_1.textValue}
                       borderWidth={2}
                       onChangeText={(text) => {
-                        var button_1 = { ...this.context.button_1 }
                         button_1.textValue = text;
-                        this.context.updateButton_1(button_1);
+                        this.context.updateButton(button_1,button_2);
                       }}
                     />
                   </Body>
@@ -90,9 +91,8 @@ export default class HomeScreen extends React.Component {
                         mode="dropdown"
                         selectedValue={this.context.button_1.fontColor}
                         onValueChange={(text) => {
-                          var button_1 = { ...this.context.button_1 }
                           button_1.fontColor = text;
-                          this.context.updateButton_1(button_1);
+                          this.context.updateButton(button_1,button_2);
                         }}
                       >
                         <Picker.Item label="Black" value="#000000" />
@@ -110,7 +110,6 @@ export default class HomeScreen extends React.Component {
                 <Separator style={{ backgroundColor: '#2e343b', marginTop: 10 }} >
                   <Text color='#ffffff' style={{ fontSize: 14, color: '#fff' }}>BACKGROUND</Text>
                 </Separator>
-
                 <ListItem>
                   <Body>
                     <Text>Background Color</Text>
@@ -122,9 +121,8 @@ export default class HomeScreen extends React.Component {
                         mode="dropdown"
                         selectedValue={this.context.button_1.backgroundColor}
                         onValueChange={(text) => {
-                          var button_1 = { ...this.context.button_1 }
                           button_1.backgroundColor = text;
-                          this.context.updateButton_1(button_1);
+                          this.context.updateButton(button_1,button_2);
                         }}
                       >
                         <Picker.Item label="Black" value="#000000" />
@@ -209,9 +207,8 @@ export default class HomeScreen extends React.Component {
                       value={this.context.button_2.textValue}
                       borderWidth={2}
                       onChangeText={(text) => {
-                        var button_2 = { ...this.context.button_2 }
                         button_2.textValue = text;
-                        this.context.updateButton_2(button_2);
+                        this.context.updateButton(button_1,button_2);
                       }}
                     />
                   </Body>
@@ -229,9 +226,8 @@ export default class HomeScreen extends React.Component {
                         mode="dropdown"
                         selectedValue={this.context.button_2.fontColor}
                         onValueChange={(text) => {
-                          var button_2 = { ...this.context.button_2 }
                           button_2.fontColor = text;
-                          this.context.updateButton_2(button_2);
+                          this.context.updateButton(button_1,button_2);
                         }}
                       >
                         <Picker.Item label="Black" value="#000000" />
@@ -261,9 +257,8 @@ export default class HomeScreen extends React.Component {
                         mode="dropdown"
                         selectedValue={this.context.button_2.backgroundColor}
                         onValueChange={(text) => {
-                          var button_2 = { ...this.context.button_2 }
                           button_2.backgroundColor = text;
-                          this.context.updateButton_2(button_2);
+                          this.context.updateButton(button_1,button_2);
                         }}
                       >
                         <Picker.Item label="Black" value="#000000" />

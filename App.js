@@ -55,7 +55,7 @@ export default class App extends React.Component {
     this.loadAsyncData();
     this.setState({ isReady: true });
     SplashScreen.hide();
-    
+
   }
 
   loadAsyncData = async () => {
@@ -90,18 +90,11 @@ export default class App extends React.Component {
     this.setState({ direction: direction_data });
     this.storeAsync(DIRECTION_KEY, this.state.direction);
   }
-  updateButton_1 = (button_1_data) => {
+  updateButton = (button_1_data, button_2_data) => {
     this.setState({ button_1: button_1_data });
-    this.storeAsync(BUTTON_1_KEY, this.state.button_1);
-  }
-  updateButton_2 = (button_2_data) => {
     this.setState({ button_2: button_2_data });
+    this.storeAsync(BUTTON_1_KEY, this.state.button_1);
     this.storeAsync(BUTTON_2_KEY, this.state.button_2);
-  }
-
-  updateButton = (key, button_state, button_data) => {
-    this.setState({ button_state: button_data });
-    this.storeAsync(key, button_state);
 
   }
 
@@ -109,11 +102,10 @@ export default class App extends React.Component {
     return (
       <SettingsContext.Provider value={{
         button_1: this.state.button_1,
-        updateButton_1: this.updateButton_1,
         button_2: this.state.button_2,
-        updateButton_2: this.updateButton_2,
         direction: this.state.direction,
         updateDirection: this.updateDirection,
+        updateButton: this.updateButton,
       }}>
         <StyleProvider style={getTheme(commonColor)}>
           <NavigationContainer>
@@ -130,5 +122,5 @@ export default class App extends React.Component {
       </SettingsContext.Provider>
     );
   }
-}
 
+}
