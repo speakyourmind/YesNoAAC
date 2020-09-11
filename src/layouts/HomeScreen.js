@@ -1,19 +1,17 @@
 import {
-  Container, Header, Left, Body, Right, Button, Title,
-  Fab, Label,
-  Separator, Text, Picker, List, ListItem, View,
+  Body, Button, Container,
+  Fab, Header,
+  Label, Left, List, ListItem, Picker, Right, Separator, Text, Title, View
 } from "native-base";
 import React from "react";
-import { Grid, Row, Col } from 'react-native-easy-grid';
-import SuperButton from '../components/SuperButton.js';
-import { SettingsContext } from '../../SettingsContext';
-import Icon from 'react-native-ionicons';
 import {
-  Alert,
   Modal,
-  StyleSheet, TextInput,
-  TouchableHighlight, SafeAreaView, ScrollView
+  SafeAreaView, ScrollView, StyleSheet, TextInput
 } from "react-native";
+import { Col, Grid, Row } from 'react-native-easy-grid';
+import Icon from 'react-native-ionicons';
+import { SettingsContext } from '../../SettingsContext';
+import SuperButton from '../components/SuperButton.js';
 export default class HomeScreen extends React.Component {
 
   constructor() {
@@ -24,19 +22,29 @@ export default class HomeScreen extends React.Component {
       modal2Visible: false
     }
   }
-
   render() {
     let button_1_view =
       <View style={{ flexGrow: 1 }} >
-        <Modal
+        <Modal 
           animationType="slide"
           transparent={false}
           visible={this.state.modal1Visible}
           onRequestClose={() => {
             this.setState({ modal1Visible: false });
-          }}
-        >
-
+          }}>
+          <Header>
+            <Left>
+              <Button transparent onPress={() => {
+                this.setState({ modal1Visible: !this.state.modal1Visible });
+              }}>
+                <Icon name='ios-arrow-back' color='#ffffff' />
+              </Button>
+            </Left>
+            <Body>
+              <Title>Edit Button 1</Title>
+            </Body>
+            <Right></Right>
+          </Header>
           <SafeAreaView style={styles.container}>
             <ScrollView style={styles.scrollView}>
               <List>
@@ -59,14 +67,9 @@ export default class HomeScreen extends React.Component {
                 </Separator>
                 <ListItem>
                   <Body>
-                    <Label>Title</Label>
-                <Text note>Text to be displayed and spoken by the button</Text>
+                    <Text>Title</Text>
                     <TextInput
-                      style={{
-                        marginTop: 10,
-                        marginLeft: 5,
-                        marginRight: 5
-                      }}
+                      style={styles.input}
                       value={this.context.button_1.textValue}
                       borderWidth={2}
                       onChangeText={(text) => {
@@ -77,31 +80,9 @@ export default class HomeScreen extends React.Component {
                     />
                   </Body>
                 </ListItem>
-                {/* <ListItem>
-              <Body>
-                <Label>Speak Text</Label>
-                <TextInput
-                  style={{
-                    marginTop: 10,
-                    marginLeft: 5,
-                    marginRight: 5
-                  }}
-                  value={this.context.button_1.speakText}
-                  borderWidth={2}
-                  onChangeText={(text) => {
-                    var button_1 = { ...this.context.button_1 }
-                    button_1.speakText = text;
-                    this.context.updateButton_1(button_1);
-                  }}
-                />
-              </Body>
-            </ListItem> */}
-
                 <ListItem>
                   <Body>
-
-                    <Label>Text Color</Label>
-
+                    <Text>Text Color</Text>
                     <View style={styles.pickerView}>
                       <Picker
                         note
@@ -132,7 +113,7 @@ export default class HomeScreen extends React.Component {
 
                 <ListItem>
                   <Body>
-                    <Label>Background Color</Label>
+                    <Text>Background Color</Text>
 
                     <View style={styles.pickerView}>
                       <Picker
@@ -159,11 +140,6 @@ export default class HomeScreen extends React.Component {
                 </ListItem>
 
               </List>
-              <Button full info onPress={() => {
-                this.setState({ modal1Visible: !this.state.modal1Visible });
-              }}              >
-                <Text style={styles.textStyle}>DONE</Text>
-              </Button>
 
             </ScrollView>
           </SafeAreaView>
@@ -173,7 +149,7 @@ export default class HomeScreen extends React.Component {
           speakText={this.context.button_1.speakText}
           fontColor={this.context.button_1.fontColor}
           backgroundColor={this.context.button_1.backgroundColor}
-          fontSize={80} disabled={this.state.editMode}/>
+          fontSize={80} disabled={this.state.editMode} />
         {this.state.editMode &&
           <Fab style={{ backgroundColor: '#2c3e50' }} direction="up" position="bottomRight" visible="" onPress={() => {
             this.setState({ modal1Visible: true });
@@ -192,7 +168,19 @@ export default class HomeScreen extends React.Component {
             this.setState({ modal2Visible: false });
           }}
         >
-
+          <Header>
+            <Left>
+              <Button transparent onPress={() => {
+                this.setState({ modal2Visible: !this.state.modal2Visible });
+              }}>
+                <Icon name='ios-arrow-back' color='#ffffff' />
+              </Button>
+            </Left>
+            <Body>
+              <Title>Edit Button 2</Title>
+            </Body>
+            <Right></Right>
+          </Header>
           <SafeAreaView style={styles.container}>
             <ScrollView style={styles.scrollView}>
               <List>
@@ -215,13 +203,9 @@ export default class HomeScreen extends React.Component {
                 </Separator>
                 <ListItem>
                   <Body>
-                    <Label>Title</Label>
+                    <Text>Title</Text>
                     <TextInput
-                      style={{
-                        marginTop: 10,
-                        marginLeft: 5,
-                        marginRight: 5
-                      }}
+                      style={styles.input}
                       value={this.context.button_2.textValue}
                       borderWidth={2}
                       onChangeText={(text) => {
@@ -232,31 +216,12 @@ export default class HomeScreen extends React.Component {
                     />
                   </Body>
                 </ListItem>
-                {/* <ListItem>
-          <Body>
-            <Label>Speak Text</Label>
-            <TextInput
-              style={{
-                marginTop: 10,
-                marginLeft: 5,
-                marginRight: 5
-              }}
-              value={this.context.button_2.speakText}
-              borderWidth={2}
-              onChangeText={(text) => {
-                var button_2 = { ...this.context.button_2 }
-                button_2.speakText = text;
-                this.context.updateButton_2(button_2);
-              }}
-            />
-          </Body>
-        </ListItem> */}
+
 
                 <ListItem>
                   <Body>
 
-                    <Label>Text Color</Label>
-
+                    <Text>Text Color</Text>
                     <View style={styles.pickerView}>
                       <Picker
                         note
@@ -287,7 +252,7 @@ export default class HomeScreen extends React.Component {
 
                 <ListItem>
                   <Body>
-                    <Label>Background Color</Label>
+                    <Text>Background Color</Text>
 
                     <View style={styles.pickerView}>
                       <Picker
@@ -312,15 +277,8 @@ export default class HomeScreen extends React.Component {
                     </View>
                   </Body>
                 </ListItem>
-
-
               </List>
-              <Button full info onPress={() => {
-                this.setState({ modal2Visible: !this.state.modal2Visible });
-              }}
-              >
-                <Text style={styles.textStyle}>DONE</Text>
-              </Button>
+
             </ScrollView>
           </SafeAreaView>
         </Modal>
@@ -329,7 +287,7 @@ export default class HomeScreen extends React.Component {
           speakText={this.context.button_2.speakText}
           fontColor={this.context.button_2.fontColor}
           backgroundColor={this.context.button_2.backgroundColor}
-          fontSize={80} disabled={this.state.editMode}/>
+          fontSize={80} disabled={this.state.editMode} />
         {this.state.editMode &&
           <Fab style={{ backgroundColor: '#2c3e50' }} direction="up" position="bottomRight" visible="" onPress={() => {
             this.setState({ modal2Visible: true });
@@ -343,22 +301,14 @@ export default class HomeScreen extends React.Component {
     if (this.context.direction === 'row') {
       grid =
         <Grid>
-          <Row>
-            {button_1_view}
-          </Row>
-          <Row>
-            {button_2_view}
-          </Row>
+          <Row>{button_1_view}</Row>
+          <Row>{button_2_view}</Row>
         </Grid>;
     } else {
       grid =
         <Grid>
-          <Col>
-            {button_1_view}
-          </Col>
-          <Col>
-            {button_2_view}
-          </Col>
+          <Col>{button_1_view}</Col>
+          <Col>{button_2_view}</Col>
         </Grid>;
     }
     return (
@@ -390,7 +340,7 @@ export default class HomeScreen extends React.Component {
           </Header>
         }
         {this.state.editMode &&
-          <Header style={{backgroundColor:'#277CB4'}} >
+          <Header style={{ backgroundColor: '#277CB4' }} >
             <Body>
               <Title>Editing Screen</Title>
             </Body>
@@ -409,6 +359,12 @@ export default class HomeScreen extends React.Component {
   }
 }
 const styles = StyleSheet.create({
+
+  input: {
+    marginTop: 10,
+    marginLeft: 10,
+    marginRight: 10
+  },
   centeredView: {
     flex: 1,
     justifyContent: "center",
@@ -431,27 +387,12 @@ const styles = StyleSheet.create({
   },
   pickerView: {
     width: 300,
-    marginTop: 5,
-    marginLeft: 5,
-    marginRight: 5,
+    marginTop: 10,
+    marginLeft: 10,
+    marginRight: 10,
     borderColor: '#000000',
     borderWidth: 2,
     alignSelf: 'stretch'
-  },
-  openButton: {
-    backgroundColor: "#F194FF",
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2
-  },
-  textStyle: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center"
-  },
-  modalText: {
-    marginBottom: 15,
-    textAlign: "center"
   }
 });
 HomeScreen.contextType = SettingsContext;

@@ -1,4 +1,4 @@
-import { Body, Card, CardItem, Container, Content, H1, List, ListItem, Right, Text, Header,Left,Button, Title } from "native-base";
+import { Body, Card, CardItem, Container, Content, H1, Label,List, ListItem, Right, Text, Header,Left,Button, Title } from "native-base";
 import React from "react";
 import { Image } from 'react-native';
 import OpenURLButton from '../components/OpenURLButton.js';
@@ -40,7 +40,7 @@ export default class AboutScreen extends React.Component {
           <List>
             <ListItem>
               <Body>
-                <Text>We need your help</Text>
+                <Label>We need your help</Label>
                 <Text note>Pay it forward to the next person in need.</Text>
               </Body>
               <Right>

@@ -19,23 +19,19 @@ export default class SuperButton extends Component {
             <View style={{ flexGrow: 1 }} >
                 <Button full disabled={this.props.disabled} onChange={this.props.onChange}
                     style={{ margin: 10, flexGrow: 1, backgroundColor: this.props.backgroundColor }}
-                    onPress={() => Tts.speak(this.props.textValue)} >
-                    <Text style={{ fontSize: this.props.fontSize,color:this.props.fontColor }}>
+                    onPress={speak()} >
+                    <Text style={{ fontSize: this.props.fontSize, color: this.props.fontColor }}>
                         {this.props.textValue}
                     </Text>
-                    
+
                 </Button>
 
-                {this.props.editMode &&
-                    <Fab direction="up" position="bottomRight" visible="">
-                        <Icon name="md-create" color="#ffffff" />
-                    </Fab>}
-                {this.props.editMode &&
-                    <Fab direction="down" position="topRight">
-                        <Icon name="md-close" color="#ffffff" />
-                    </Fab>}
             </View >
         )
     }
 
+}
+
+function speak() {
+    return () => Tts.speak(this.props.textValue);
 }
