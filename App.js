@@ -24,6 +24,23 @@ const BUTTON_2_KEY = 'button_2'
 const DIRECTION_KEY = 'direction'
 const Stack = createStackNavigator();
 
+const button_1_default = {
+  key: 'button_1',
+  textValue: 'YES',
+  speakText: 'YES',
+  fontColor: '#ffffff',
+  backgroundColor: '#1F894B',
+  fontSize: 100,
+};
+const button_2_default = {
+  key: 'button_2',
+  textValue: 'NO',
+  speakText: 'NO',
+  fontColor: '#ffffff',
+  backgroundColor: '#c0392b',
+  fontSize: 100,
+};
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -98,6 +115,11 @@ export default class App extends React.Component {
 
   }
 
+  restoreDefaults = () => {
+    
+    this.updateButton(button_1_default, button_2_default);
+  }
+
   render() {
     return (
       <SettingsContext.Provider value={{
@@ -106,6 +128,7 @@ export default class App extends React.Component {
         direction: this.state.direction,
         updateDirection: this.updateDirection,
         updateButton: this.updateButton,
+        restoreDefaults: this.restoreDefaults,
       }}>
         <StyleProvider style={getTheme(commonColor)}>
           <NavigationContainer>

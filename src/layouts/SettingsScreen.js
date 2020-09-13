@@ -4,32 +4,51 @@ import {
   Separator, Text, Title, Picker, List, ListItem, View, Tab, Tabs
 } from "native-base";
 import React from "react";
-import { TextInput, StyleSheet } from 'react-native';
+import { TextInput, StyleSheet, Alert } from 'react-native';
 import Icon from 'react-native-ionicons';
 import { SettingsContext } from '../../SettingsContext';
 import SuperButton from '../components/SuperButton.js';
-
 
 export default class SettingsScreen extends React.Component {
   constructor(props) {
     super(props);
 
   }
+  restoreDefaultsAlert = () =>
+    Alert.alert(
+      "Restore Home Screen",
+      "Are you sure you would like to erase all changes?",
+      [
+        {
+          text: "Cancel",
+          onPress: () => console.log("Cancel Pressed"),
+          style: "cancel"
+        },
+        {
+          text: "OK", onPress: () => {
+            this.context.restoreDefaults();
+            this.props.navigation.navigate('Home');
+          }
+        }
+      ],
+      { cancelable: false }
+    );
+
   render() {
     return (
       <Container>
         <Header >
-          <Left style={{flex:1}}>
+          <Left style={{ flex: 1 }}>
             <Button transparent onPress={() =>
               this.props.navigation.navigate('Home')
             }>
               <Icon name='ios-arrow-back' color='#ffffff' />
-            
-              <Title style={{paddingLeft:50}}>Settings</Title>
+
+              <Title style={{ paddingLeft: 50 }}>Settings</Title>
             </Button>
           </Left>
-          <Body/>
-          <Right style={{flex:1}}>
+          <Body />
+          <Right style={{ flex: 1 }}>
             <Button transparent>
               <Icon name='ios-information-circle-outline' color='#ffffff' onPress={() =>
                 this.props.navigation.navigate('About')
@@ -59,6 +78,14 @@ export default class SettingsScreen extends React.Component {
                 </View>
               </Body>
             </ListItem>
+            <ListItem>
+              <Body>
+                <Button full info onPress={() =>
+                  this.restoreDefaultsAlert()}>
+                  <Text>RESTORE DEFAULTS</Text>
+                </Button>
+              </Body>
+            </ListItem>
           </List>
 
         </Content>
@@ -76,7 +103,7 @@ const styles = StyleSheet.create({
     borderColor: '#000000',
     borderWidth: 2,
     alignSelf: 'stretch'
-  },                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+  },
   titleText: {
     fontWeight: 'bold',
     fontSize: 18,

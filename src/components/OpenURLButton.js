@@ -22,7 +22,7 @@ export default class OpenURLButton extends React.Component {
   render() {
     return (
       <View style={{ flexGrow: 1}}>
-        <OpenButton url={this.props.supportedURL}>{this.props.buttonText}</OpenButton>
+        <OpenButton url={this.props.url}>{this.props.buttonText}</OpenButton>
       </View>
     );
   }

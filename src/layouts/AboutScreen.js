@@ -3,7 +3,8 @@ import React from "react";
 import { Image } from 'react-native';
 import OpenURLButton from '../components/OpenURLButton.js';
 import Icon from 'react-native-ionicons';
-import {StyleSheet} from "react-native";
+import { StyleSheet } from "react-native";
+const visitUsURL = "https://speakyourmindfoundation.org/";
 const getHelpURL = "https://speakyourmindfoundation.org/gethelp.html";
 const donateURL = "https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=QY6S73LW86FA8&source=url";
 
@@ -14,31 +15,39 @@ export default class AboutScreen extends React.Component {
     return (
       <Container>
         <Header>
-          <Left style={{flex:1}}>
+          <Left style={{ flex: 1 }}>
             <Button transparent onPress={() =>
               this.props.navigation.goBack()
             }>
               <Icon name='ios-arrow-back' color='#ffffff' />
-            <Title style={{paddingLeft:50}}>About</Title>
+              <Title style={{ paddingLeft: 50 }}>About Us</Title>
             </Button>
           </Left>
-          <Body/>
-          <Right/>
+          <Body />
+          <Right />
         </Header>
         <Content>
-          <Card>
-
-            <CardItem>
-              <Body>
-                <H1>SpeakYourMind Foundation</H1>
+          <List>
+            <ListItem>
+              <Body style={{flex:1}}>
+                <Text style={styles.titleText}>SpeakYourMind Foundation</Text>
                 <Text>We are a 501(c)(3) nonprofit organization spun out of the BrainGate Lab at Brown University and Massachusetts General Hospital.
                 </Text>
                 <Text>We create, distribute, and support assistive communication technologies for individuals who are unable to effectively communicate due to neurological injury and disease.
-                </Text>
+                </Text>  
+                </Body>
+            </ListItem>
+            
+            <ListItem>
+              <Body>
+                <Text style={styles.titleText}>Learn More</Text>
+                <Text>Visit our website to learn more about who we are and who we help.</Text>
               </Body>
-            </CardItem>
-          </Card>
-          <List>
+              <Right>
+                <OpenURLButton url={visitUsURL} buttonText='VISIT US'>
+                </OpenURLButton>
+              </Right>
+            </ListItem>
             <ListItem>
               <Body>
                 <Text style={styles.titleText}>We need your help</Text>
@@ -86,6 +95,6 @@ export default class AboutScreen extends React.Component {
   }
 }
 const styles = StyleSheet.create({
- 
+
   titleText: { fontWeight: 'bold', fontSize: 18, color: '#000' },
 });
