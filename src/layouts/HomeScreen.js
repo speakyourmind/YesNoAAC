@@ -12,6 +12,8 @@ import { Col, Grid, Row } from 'react-native-easy-grid';
 import Icon from 'react-native-ionicons';
 import { SettingsContext } from '../../SettingsContext';
 import SuperButton from '../components/SuperButton.js';
+
+
 export default class HomeScreen extends React.Component {
 
   constructor() {
@@ -27,7 +29,7 @@ export default class HomeScreen extends React.Component {
     var button_2 = { ...this.context.button_2 }
     let button_1_view =
       <View style={{ flexGrow: 1 }} >
-        <Modal 
+        <Modal
           animationType="slide"
           transparent={false}
           visible={this.state.modal1Visible}
@@ -35,16 +37,14 @@ export default class HomeScreen extends React.Component {
             this.setState({ modal1Visible: false });
           }}>
           <Header>
-            <Left>
+            <Left style={{flex:1}}>
               <Button transparent onPress={() => {
                 this.setState({ modal1Visible: !this.state.modal1Visible });
               }}>
                 <Icon name='ios-arrow-back' color='#ffffff' />
+              <Title style={{paddingLeft:50}}>Edit Button 1</Title>
               </Button>
             </Left>
-            <Body>
-              <Title>Edit Button 1</Title>
-            </Body>
             <Right></Right>
           </Header>
           <SafeAreaView style={styles.container}>
@@ -65,25 +65,25 @@ export default class HomeScreen extends React.Component {
                   </Body>
                 </ListItem>
                 <Separator style={{ backgroundColor: '#2e343b', marginTop: 10 }} >
-                  <Text color='#ffffff' style={{ fontSize: 14, color: '#fff' }}>TEXT</Text>
+                  <Text color='#ffffff' style={{ fontSize: 18, color: '#fff' }}>TEXT</Text>
                 </Separator>
                 <ListItem>
                   <Body>
-                    <Text>Title</Text>
+                    <Text style={styles.titleText}>Title</Text>
                     <TextInput
                       style={styles.input}
                       value={this.context.button_1.textValue}
                       borderWidth={2}
                       onChangeText={(text) => {
                         button_1.textValue = text;
-                        this.context.updateButton(button_1,button_2);
+                        this.context.updateButton(button_1, button_2);
                       }}
                     />
                   </Body>
                 </ListItem>
                 <ListItem>
                   <Body>
-                    <Text>Text Color</Text>
+                    <Text style={styles.titleText}>Text Color</Text>
                     <View style={styles.pickerView}>
                       <Picker
                         note
@@ -92,7 +92,7 @@ export default class HomeScreen extends React.Component {
                         selectedValue={this.context.button_1.fontColor}
                         onValueChange={(text) => {
                           button_1.fontColor = text;
-                          this.context.updateButton(button_1,button_2);
+                          this.context.updateButton(button_1, button_2);
                         }}
                       >
                         <Picker.Item label="Black" value="#000000" />
@@ -108,12 +108,11 @@ export default class HomeScreen extends React.Component {
                 </ListItem>
 
                 <Separator style={{ backgroundColor: '#2e343b', marginTop: 10 }} >
-                  <Text color='#ffffff' style={{ fontSize: 14, color: '#fff' }}>BACKGROUND</Text>
+                  <Text color='#ffffff' style={{ fontSize: 18, color: '#fff' }}>BACKGROUND</Text>
                 </Separator>
                 <ListItem>
                   <Body>
-                    <Text>Background Color</Text>
-
+                    <Text style={styles.titleText}>Background Color</Text>
                     <View style={styles.pickerView}>
                       <Picker
                         note
@@ -122,7 +121,7 @@ export default class HomeScreen extends React.Component {
                         selectedValue={this.context.button_1.backgroundColor}
                         onValueChange={(text) => {
                           button_1.backgroundColor = text;
-                          this.context.updateButton(button_1,button_2);
+                          this.context.updateButton(button_1, button_2);
                         }}
                       >
                         <Picker.Item label="Black" value="#000000" />
@@ -167,17 +166,15 @@ export default class HomeScreen extends React.Component {
           }}
         >
           <Header>
-            <Left>
+          <Left style={{flex:1}}>
               <Button transparent onPress={() => {
-                this.setState({ modal2Visible: !this.state.modal2Visible });
+                this.setState({ modal1Visible: !this.state.modal1Visible });
               }}>
                 <Icon name='ios-arrow-back' color='#ffffff' />
+              <Title style={{paddingLeft:50}}>Edit Button 2</Title>
               </Button>
             </Left>
-            <Body>
-              <Title>Edit Button 2</Title>
-            </Body>
-            <Right></Right>
+            <Right/>
           </Header>
           <SafeAreaView style={styles.container}>
             <ScrollView style={styles.scrollView}>
@@ -197,18 +194,18 @@ export default class HomeScreen extends React.Component {
                   </Body>
                 </ListItem>
                 <Separator style={{ backgroundColor: '#2e343b', marginTop: 10 }} >
-                  <Text color='#ffffff' style={{ fontSize: 14, color: '#fff' }}>TEXT</Text>
+                  <Text color='#ffffff' style={{ fontSize: 18, color: '#fff' }}>TEXT</Text>
                 </Separator>
                 <ListItem>
                   <Body>
-                    <Text>Title</Text>
+                    <Text style={styles.titleText}>Title</Text>
                     <TextInput
                       style={styles.input}
                       value={this.context.button_2.textValue}
                       borderWidth={2}
                       onChangeText={(text) => {
                         button_2.textValue = text;
-                        this.context.updateButton(button_1,button_2);
+                        this.context.updateButton(button_1, button_2);
                       }}
                     />
                   </Body>
@@ -218,7 +215,7 @@ export default class HomeScreen extends React.Component {
                 <ListItem>
                   <Body>
 
-                    <Text>Text Color</Text>
+                    <Text style={styles.titleText}>Text Color</Text>
                     <View style={styles.pickerView}>
                       <Picker
                         note
@@ -227,7 +224,7 @@ export default class HomeScreen extends React.Component {
                         selectedValue={this.context.button_2.fontColor}
                         onValueChange={(text) => {
                           button_2.fontColor = text;
-                          this.context.updateButton(button_1,button_2);
+                          this.context.updateButton(button_1, button_2);
                         }}
                       >
                         <Picker.Item label="Black" value="#000000" />
@@ -243,12 +240,12 @@ export default class HomeScreen extends React.Component {
                 </ListItem>
 
                 <Separator style={{ backgroundColor: '#2e343b', marginTop: 10 }} >
-                  <Text color='#ffffff' style={{ fontSize: 14, color: '#fff' }}>BACKGROUND</Text>
+                  <Text color='#ffffff' style={{ fontSize: 18, color: '#fff' }}>BACKGROUND</Text>
                 </Separator>
 
                 <ListItem>
                   <Body>
-                    <Text>Background Color</Text>
+                    <Text style={styles.titleText}>Background Color</Text>
 
                     <View style={styles.pickerView}>
                       <Picker
@@ -258,7 +255,7 @@ export default class HomeScreen extends React.Component {
                         selectedValue={this.context.button_2.backgroundColor}
                         onValueChange={(text) => {
                           button_2.backgroundColor = text;
-                          this.context.updateButton(button_1,button_2);
+                          this.context.updateButton(button_1, button_2);
                         }}
                       >
                         <Picker.Item label="Black" value="#000000" />
@@ -336,10 +333,13 @@ export default class HomeScreen extends React.Component {
         }
         {this.state.editMode &&
           <Header style={{ backgroundColor: '#277CB4' }} >
+            <Left style={{flex:1}}>
+              <Title style={{paddingLeft:50}}>Editing Screen</Title>
+              
+            </Left>
             <Body>
-              <Title>Editing Screen</Title>
             </Body>
-            <Right>
+            <Right style={{paddingLeft:50}}>
               <Button transparent onPress={() =>
                 this.setState({ editMode: !this.state.editMode })
               }>
@@ -354,17 +354,15 @@ export default class HomeScreen extends React.Component {
   }
 }
 const styles = StyleSheet.create({
-
+  titleText: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    color: '#000'
+  },
   input: {
     marginTop: 10,
     marginLeft: 10,
     marginRight: 10
-  },
-  centeredView: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22
   },
   modalView: {
     margin: 10,

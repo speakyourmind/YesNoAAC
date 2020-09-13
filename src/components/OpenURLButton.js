@@ -2,10 +2,6 @@ import React, { useCallback } from "react";
 import { Alert, Linking, StyleSheet, View, Button } from "react-native";
 import SuperButton from "./SuperButton.js";
 
-const supportedURL = "https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=QY6S73LW86FA8&source=url";
-
-const unsupportedURL = "slack://open?team=123456";
-
 const OpenButton = ({ url, children }) => {
   const handlePress = useCallback(async () => {
     // Checking if the link is supported for links with custom URL scheme.
@@ -26,7 +22,7 @@ export default class OpenURLButton extends React.Component {
   render() {
     return (
       <View style={{ flexGrow: 1}}>
-        <OpenButton url={supportedURL}>DONATE</OpenButton>
+        <OpenButton url={this.props.supportedURL}>{this.props.buttonText}</OpenButton>
       </View>
     );
   }
