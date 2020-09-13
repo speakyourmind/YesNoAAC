@@ -12,7 +12,7 @@ import { Col, Grid, Row } from 'react-native-easy-grid';
 import Icon from 'react-native-ionicons';
 import { SettingsContext } from '../../SettingsContext';
 import SuperButton from '../components/SuperButton.js';
-
+import Slider from '@react-native-community/slider';
 
 export default class HomeScreen extends React.Component {
 
@@ -37,12 +37,12 @@ export default class HomeScreen extends React.Component {
             this.setState({ modal1Visible: false });
           }}>
           <Header>
-            <Left style={{flex:1}}>
+            <Left style={{ flex: 1 }}>
               <Button transparent onPress={() => {
                 this.setState({ modal1Visible: !this.state.modal1Visible });
               }}>
                 <Icon name='ios-arrow-back' color='#ffffff' />
-              <Title style={{paddingLeft:50}}>Edit Button 1</Title>
+                <Title style={{ paddingLeft: 50 }}>Edit Button 1</Title>
               </Button>
             </Left>
             <Right></Right>
@@ -57,7 +57,7 @@ export default class HomeScreen extends React.Component {
                       borderWidth: 2
                     }}>
                       <Button full style={{ width: 300, flexGrow: 1, backgroundColor: this.context.button_1.backgroundColor }}>
-                        <Text style={{ fontSize: 100, color: this.context.button_1.fontColor }}>
+                        <Text style={{ fontSize: this.context.button_1.fontSize, color: this.context.button_1.fontColor }}>
                           {this.context.button_1.textValue}
                         </Text>
                       </Button>
@@ -76,6 +76,24 @@ export default class HomeScreen extends React.Component {
                       borderWidth={2}
                       onChangeText={(text) => {
                         button_1.textValue = text;
+                        this.context.updateButton(button_1, button_2);
+                      }}
+                    />
+                  </Body>
+                </ListItem>
+                <ListItem>
+                  <Body>
+                    <Text style={styles.titleText}>Text Size</Text>
+                    <Slider
+                      style={{ width:300,flex:1 }}
+                      minimumValue={10}
+                      maximumValue={250}
+                      minimumTrackTintColor="#277CB4"
+                      maximumTrackTintColor="#000000"
+                      thumbTintColor="#277CB4"
+                      value={this.context.button_1.fontSize}
+                      onValueChange={(value) => {
+                        button_1.fontSize = value;
                         this.context.updateButton(button_1, button_2);
                       }}
                     />
@@ -146,7 +164,7 @@ export default class HomeScreen extends React.Component {
           speakText={this.context.button_1.speakText}
           fontColor={this.context.button_1.fontColor}
           backgroundColor={this.context.button_1.backgroundColor}
-          fontSize={80} disabled={this.state.editMode} />
+          fontSize={this.context.button_1.fontSize} disabled={this.state.editMode} />
         {this.state.editMode &&
           <Fab style={{ backgroundColor: '#2c3e50' }} direction="up" position="bottomRight" visible="" onPress={() => {
             this.setState({ modal1Visible: true });
@@ -166,15 +184,15 @@ export default class HomeScreen extends React.Component {
           }}
         >
           <Header>
-          <Left style={{flex:1}}>
+            <Left style={{ flex: 1 }}>
               <Button transparent onPress={() => {
-                this.setState({ modal1Visible: !this.state.modal1Visible });
+                this.setState({ modal2Visible: !this.state.modal2Visible });
               }}>
                 <Icon name='ios-arrow-back' color='#ffffff' />
-              <Title style={{paddingLeft:50}}>Edit Button 2</Title>
+                <Title style={{ paddingLeft: 50 }}>Edit Button 2</Title>
               </Button>
             </Left>
-            <Right/>
+            <Right />
           </Header>
           <SafeAreaView style={styles.container}>
             <ScrollView style={styles.scrollView}>
@@ -210,7 +228,24 @@ export default class HomeScreen extends React.Component {
                     />
                   </Body>
                 </ListItem>
-
+                <ListItem>
+                  <Body>
+                    <Text style={styles.titleText}>Text Size</Text>
+                    <Slider
+                      style={{ width:300,flex:1 }}
+                      minimumValue={10}
+                      maximumValue={250}
+                      minimumTrackTintColor="#277CB4"
+                      maximumTrackTintColor="#000000"
+                      thumbTintColor="#277CB4"
+                      value={this.context.button_2.fontSize}
+                      onValueChange={(value) => {
+                        button_2.fontSize = value;
+                        this.context.updateButton(button_1, button_2);
+                      }}
+                    />
+                  </Body>
+                </ListItem>
 
                 <ListItem>
                   <Body>
@@ -279,7 +314,7 @@ export default class HomeScreen extends React.Component {
           speakText={this.context.button_2.speakText}
           fontColor={this.context.button_2.fontColor}
           backgroundColor={this.context.button_2.backgroundColor}
-          fontSize={80} disabled={this.state.editMode} />
+          fontSize={this.context.button_2.fontSize} disabled={this.state.editMode} />
         {this.state.editMode &&
           <Fab style={{ backgroundColor: '#2c3e50' }} direction="up" position="bottomRight" visible="" onPress={() => {
             this.setState({ modal2Visible: true });
@@ -333,13 +368,13 @@ export default class HomeScreen extends React.Component {
         }
         {this.state.editMode &&
           <Header style={{ backgroundColor: '#277CB4' }} >
-            <Left style={{flex:1}}>
-              <Title style={{paddingLeft:50}}>Editing Screen</Title>
-              
+            <Left style={{ flex: 1 }}>
+              <Title style={{ paddingLeft: 50 }}>Editing Screen</Title>
+
             </Left>
             <Body>
             </Body>
-            <Right style={{paddingLeft:50}}>
+            <Right style={{ paddingLeft: 50 }}>
               <Button transparent onPress={() =>
                 this.setState({ editMode: !this.state.editMode })
               }>
