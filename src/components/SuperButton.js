@@ -1,25 +1,24 @@
 
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-
-import Tts from 'react-native-tts';
 import {
-    View,
-    Container,
     Button,
-    Text,
-    Fab
+    Text, View
 } from "native-base";
-import Icon from 'react-native-ionicons';
+import React, { Component } from 'react';
+import Tts from 'react-native-tts';
+
 
 export default class SuperButton extends Component {
+    speak = (speakText) => {
 
+    }
     render() {
         return (
             <View style={{ flexGrow: 1 }} >
                 <Button full disabled={this.props.disabled} onChange={this.props.onChange}
                     style={{ margin: 10, flexGrow: 1, backgroundColor: this.props.backgroundColor }}
-                    onPress={speak()} >
+                    onPress={() => {
+                        Tts.speak(this.props.textValue)
+                    }} >
                     <Text style={{ fontSize: this.props.fontSize, color: this.props.fontColor }}>
                         {this.props.textValue}
                     </Text>
@@ -32,6 +31,3 @@ export default class SuperButton extends Component {
 
 }
 
-function speak() {
-    return () => Tts.speak(this.props.textValue);
-}

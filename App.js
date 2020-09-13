@@ -31,6 +31,7 @@ const button_1_default = {
   fontColor: '#ffffff',
   backgroundColor: '#1F894B',
   fontSize: 100,
+  inEdit:false,
 };
 const button_2_default = {
   key: 'button_2',
@@ -39,6 +40,7 @@ const button_2_default = {
   fontColor: '#ffffff',
   backgroundColor: '#c0392b',
   fontSize: 100,
+  inEdit:false,
 };
 
 export default class App extends React.Component {
@@ -47,22 +49,8 @@ export default class App extends React.Component {
     this.state = {
       isReady: false,
       direction: 'row',
-      button_1: {
-        key: 'button_1',
-        textValue: 'YES',
-        speakText: 'YES',
-        fontColor: '#ffffff',
-        backgroundColor: '#1F894B',
-        fontSize: 100,
-      },
-      button_2: {
-        key: 'button_2',
-        textValue: 'NO',
-        speakText: 'NO',
-        fontColor: '#ffffff',
-        backgroundColor: '#c0392b',
-        fontSize: 100,
-      }
+      button_1:{button_1_default},
+      button_2:{button_2_default}
     };
   }
 

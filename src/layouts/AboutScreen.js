@@ -16,7 +16,10 @@ export default class AboutScreen extends React.Component {
       <Container>
         <Header>
           <Left style={{ flex: 1 }}>
-            <Button transparent onPress={() =>
+            <Button transparent 
+            accessibilityLabel="Go back"
+            accessibilityHint="Navigates to the previous screen."
+            onPress={() =>
               this.props.navigation.goBack()
             }>
               <Icon name='ios-arrow-back' color='#ffffff' />

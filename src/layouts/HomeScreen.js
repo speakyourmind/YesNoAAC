@@ -85,7 +85,7 @@ export default class HomeScreen extends React.Component {
                   <Body>
                     <Text style={styles.titleText}>Text Size</Text>
                     <Slider
-                      style={{ width:300,flex:1 }}
+                      style={{ width: 300, flex: 1 }}
                       minimumValue={10}
                       maximumValue={250}
                       minimumTrackTintColor="#277CB4"
@@ -185,9 +185,12 @@ export default class HomeScreen extends React.Component {
         >
           <Header>
             <Left style={{ flex: 1 }}>
-              <Button transparent onPress={() => {
-                this.setState({ modal2Visible: !this.state.modal2Visible });
-              }}>
+              <Button transparent
+                accessibilityLabel="Go back"
+                accessibilityHint="Ends button editing and closes the dialog."
+                onPress={() => {
+                  this.setState({ modal2Visible: !this.state.modal2Visible });
+                }}>
                 <Icon name='ios-arrow-back' color='#ffffff' />
                 <Title style={{ paddingLeft: 50 }}>Edit Button 2</Title>
               </Button>
@@ -232,7 +235,7 @@ export default class HomeScreen extends React.Component {
                   <Body>
                     <Text style={styles.titleText}>Text Size</Text>
                     <Slider
-                      style={{ width:300,flex:1 }}
+                      style={{ width: 300, flex: 1 }}
                       minimumValue={10}
                       maximumValue={250}
                       minimumTrackTintColor="#277CB4"

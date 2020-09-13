@@ -39,7 +39,10 @@ export default class SettingsScreen extends React.Component {
       <Container>
         <Header >
           <Left style={{ flex: 1 }}>
-            <Button transparent onPress={() =>
+            <Button transparent 
+            accessibilityLabel="Go back"
+            accessibilityHint="Navigates to the home screen."
+            onPress={() =>
               this.props.navigation.navigate('Home')
             }>
               <Icon name='ios-arrow-back' color='#ffffff' />
