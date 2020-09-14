@@ -214,24 +214,6 @@ export default class HomeScreen extends React.Component {
                     />
                   </Body>
                 </ListItem>
-                <ListItem>
-                  <Body>
-                    <Text style={styles.titleText}>Text Size</Text>
-                    <Slider
-                      style={{ width: 325, flex: 1, marginTop: 15, marginBottom: 5 }}
-                      minimumValue={10}
-                      maximumValue={250}
-                      minimumTrackTintColor="#277CB4"
-                      maximumTrackTintColor="#000000"
-                      thumbTintColor="#277CB4"
-                      value={this.context.button_2.fontSize}
-                      onValueChange={(value) => {
-                        button_2.fontSize = value;
-                        this.context.updateButton(button_1, button_2);
-                      }}
-                    />
-                  </Body>
-                </ListItem>
 
                 <ListItem>
                   <Body>

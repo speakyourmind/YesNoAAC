@@ -71,8 +71,7 @@ export default class SettingsScreen extends React.Component {
                     mode="dropdown"
                     selectedValue={this.context.direction}
                     onValueChange={(text) => {
-                      this.context.direction = text;
-                      this.context.updateDirection(this.context.direction);
+                      this.context.updateDirection(text);
                     }}
                   >
                     <Picker.Item label="Row Wise" value="row" />
@@ -93,8 +92,7 @@ export default class SettingsScreen extends React.Component {
                   thumbTintColor="#277CB4"
                   value={this.context.margin}
                   onValueChange={(value) => {
-                    this.context.margin = value;
-                    this.context.updateMargin(this.context.margin);
+                    this.context.updateMargin(value);
                   }}
                 />
               </Body>
@@ -111,7 +109,8 @@ export default class SettingsScreen extends React.Component {
                       maximumTrackTintColor="#000000"
                       thumbTintColor="#277CB4"
                       value={this.context.fontSize}
-                      onValueChange={(value) => {
+                      onSlidingComplete={(value) => {
+                        console.log("Font Size Slider: "+value);
                         this.context.updateFontSize(value);
                       }}
                     />
