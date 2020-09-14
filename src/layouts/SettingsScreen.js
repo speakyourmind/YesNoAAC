@@ -48,7 +48,7 @@ export default class SettingsScreen extends React.Component {
               }>
               <Icon name='ios-arrow-back' color='#ffffff' />
 
-              <Title style={{ paddingLeft: 50 }}>Settings</Title>
+              <Title style={{ paddingLeft: 40 }}>Settings</Title>
             </Button>
           </Left>
           <Right style={{ flex: 1 }}>
@@ -85,9 +85,9 @@ export default class SettingsScreen extends React.Component {
               <Body>
                 <Text style={styles.titleText}>Button Gap</Text>
                 <Slider
-                  style={{ width: 300, flex: 1 }}
-                  minimumValue={10}
-                  maximumValue={250}
+                  style={{ width: 325, flex: 1, marginTop: 15, marginBottom: 5 }}
+                  minimumValue={0}
+                  maximumValue={100}
                   minimumTrackTintColor="#277CB4"
                   maximumTrackTintColor="#000000"
                   thumbTintColor="#277CB4"

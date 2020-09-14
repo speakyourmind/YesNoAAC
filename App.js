@@ -126,7 +126,8 @@ export default class App extends React.Component {
   }
 
   restoreDefaults = () => {
-    
+    this.updateDirection('row');
+    this.updateMargin(10);
     this.updateButton(button_1_default, button_2_default);
   }
 

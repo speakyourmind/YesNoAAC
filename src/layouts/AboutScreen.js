@@ -1,14 +1,12 @@
-import { Body, Card, CardItem, Container, Content, H1, Label, List, ListItem, Right, Text, Header, Left, Button, Title } from "native-base";
+import { Body, Button, Container, Content, Header, Left, List, ListItem, Right, Text, Title } from "native-base";
 import React from "react";
-import { Image } from 'react-native';
-import OpenURLButton from '../components/OpenURLButton.js';
-import Icon from 'react-native-ionicons';
 import { StyleSheet } from "react-native";
+import Icon from 'react-native-ionicons';
+import OpenURLButton from '../components/OpenURLButton.js';
+
 const visitUsURL = "https://speakyourmindfoundation.org/";
 const getHelpURL = "https://speakyourmindfoundation.org/gethelp.html";
 const donateURL = "https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=QY6S73LW86FA8&source=url";
-
-
 
 export default class AboutScreen extends React.Component {
   render() {
@@ -16,35 +14,34 @@ export default class AboutScreen extends React.Component {
       <Container>
         <Header>
           <Left style={{ flex: 1 }}>
-            <Button transparent 
-            accessibilityLabel="Go back"
-            accessibilityHint="Navigates to the previous screen."
-            onPress={() =>
-              this.props.navigation.goBack()
-            }>
+            <Button transparent
+              accessibilityLabel="Go back"
+              accessibilityHint="Navigates to the previous screen."
+              onPress={() =>
+                this.props.navigation.goBack()
+              }>
               <Icon name='ios-arrow-back' color='#ffffff' />
-              <Title style={{ paddingLeft: 50 }}>About Us</Title>
+              <Title style={{ paddingLeft: 40 }}>About Us</Title>
             </Button>
           </Left>
-          <Body />
           <Right />
         </Header>
         <Content>
           <List>
             <ListItem>
-              <Body style={{flex:1}}>
+              <Body style={{ flex: 1 }}>
                 <Text style={styles.titleText}>SpeakYourMind Foundation</Text>
                 <Text>We are a 501(c)(3) nonprofit organization spun out of the BrainGate Lab at Brown University and Massachusetts General Hospital.
                 </Text>
                 <Text>We create, distribute, and support assistive communication technologies for individuals who are unable to effectively communicate due to neurological injury and disease.
-                </Text>  
-                </Body>
+                </Text>
+              </Body>
             </ListItem>
-            
+
             <ListItem>
               <Body>
                 <Text style={styles.titleText}>Learn More</Text>
-                <Text>Visit our website to learn more about who we are and who we help.</Text>
+                <Text>Visit our website to find out more about who we are and who we help.</Text>
               </Body>
               <Right>
                 <OpenURLButton url={visitUsURL} buttonText='VISIT US'>

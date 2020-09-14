@@ -85,7 +85,7 @@ export default class HomeScreen extends React.Component {
                   <Body>
                     <Text style={styles.titleText}>Text Size</Text>
                     <Slider
-                      style={{ width: 300, flex: 1 }}
+                      style={{ width: 325, flex: 1, marginTop: 15, marginBottom: 5 }}
                       minimumValue={10}
                       maximumValue={250}
                       minimumTrackTintColor="#277CB4"
@@ -236,7 +236,7 @@ export default class HomeScreen extends React.Component {
                   <Body>
                     <Text style={styles.titleText}>Text Size</Text>
                     <Slider
-                      style={{ width: 300, flex: 1 }}
+                      style={{ width: 325, flex: 1, marginTop: 15, marginBottom: 5 }}
                       minimumValue={10}
                       maximumValue={250}
                       minimumTrackTintColor="#277CB4"
@@ -319,7 +319,7 @@ export default class HomeScreen extends React.Component {
           fontColor={this.context.button_2.fontColor}
           backgroundColor={this.context.button_2.backgroundColor}
           margin={this.context.margin}
-          fontSize={this.context.button_2.fontSize} 
+          fontSize={this.context.button_2.fontSize}
           disabled={this.state.editMode} />
         {this.state.editMode &&
           <Fab style={{ backgroundColor: '#2c3e50' }} direction="up" position="bottomRight" visible="" onPress={() => {
@@ -392,8 +392,8 @@ export default class HomeScreen extends React.Component {
   }
 }
 const styles = StyleSheet.create({
-  paddedTitle:{
-   paddingLeft: 50
+  paddedTitle: {
+    paddingLeft: 40
   },
   titleText: {
     fontWeight: 'bold',
