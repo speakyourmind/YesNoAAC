@@ -1,7 +1,8 @@
+import Slider from '@react-native-community/slider';
 import {
   Body, Button, Container,
   Fab, Header,
-  Label, Left, List, ListItem, Picker, Right, Separator, Text, Title, View
+  Left, List, ListItem, Picker, Right, Separator, Text, Title, View
 } from "native-base";
 import React from "react";
 import {
@@ -12,7 +13,6 @@ import { Col, Grid, Row } from 'react-native-easy-grid';
 import Icon from 'react-native-ionicons';
 import { SettingsContext } from '../../SettingsContext';
 import SuperButton from '../components/SuperButton.js';
-import Slider from '@react-native-community/slider';
 
 export default class HomeScreen extends React.Component {
 
@@ -42,7 +42,7 @@ export default class HomeScreen extends React.Component {
                 this.setState({ modal1Visible: !this.state.modal1Visible });
               }}>
                 <Icon name='ios-arrow-back' color='#ffffff' />
-                <Title style={{ paddingLeft: 50 }}>Edit Button 1</Title>
+                <Title style={styles.paddedTitle}>Edit Button 1</Title>
               </Button>
             </Left>
             <Right></Right>
@@ -164,6 +164,7 @@ export default class HomeScreen extends React.Component {
           speakText={this.context.button_1.speakText}
           fontColor={this.context.button_1.fontColor}
           backgroundColor={this.context.button_1.backgroundColor}
+          margin={this.context.margin}
           fontSize={this.context.button_1.fontSize} disabled={this.state.editMode} />
         {this.state.editMode &&
           <Fab style={{ backgroundColor: '#2c3e50' }} direction="up" position="bottomRight" visible="" onPress={() => {
@@ -192,7 +193,7 @@ export default class HomeScreen extends React.Component {
                   this.setState({ modal2Visible: !this.state.modal2Visible });
                 }}>
                 <Icon name='ios-arrow-back' color='#ffffff' />
-                <Title style={{ paddingLeft: 50 }}>Edit Button 2</Title>
+                <Title style={styles.paddedTitle}>Edit Button 2</Title>
               </Button>
             </Left>
             <Right />
@@ -317,7 +318,9 @@ export default class HomeScreen extends React.Component {
           speakText={this.context.button_2.speakText}
           fontColor={this.context.button_2.fontColor}
           backgroundColor={this.context.button_2.backgroundColor}
-          fontSize={this.context.button_2.fontSize} disabled={this.state.editMode} />
+          margin={this.context.margin}
+          fontSize={this.context.button_2.fontSize} 
+          disabled={this.state.editMode} />
         {this.state.editMode &&
           <Fab style={{ backgroundColor: '#2c3e50' }} direction="up" position="bottomRight" visible="" onPress={() => {
             this.setState({ modal2Visible: true });
@@ -372,12 +375,9 @@ export default class HomeScreen extends React.Component {
         {this.state.editMode &&
           <Header style={{ backgroundColor: '#277CB4' }} >
             <Left style={{ flex: 1 }}>
-              <Title style={{ paddingLeft: 50 }}>Editing Screen</Title>
-
+              <Title style={styles.paddedTitle}>Editing Screen</Title>
             </Left>
-            <Body>
-            </Body>
-            <Right style={{ paddingLeft: 50 }}>
+            <Right>
               <Button transparent onPress={() =>
                 this.setState({ editMode: !this.state.editMode })
               }>
@@ -392,6 +392,9 @@ export default class HomeScreen extends React.Component {
   }
 }
 const styles = StyleSheet.create({
+  paddedTitle:{
+   paddingLeft: 50
+  },
   titleText: {
     fontWeight: 'bold',
     fontSize: 18,

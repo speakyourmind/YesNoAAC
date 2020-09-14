@@ -22,6 +22,7 @@ import AboutScreen from './src/layouts/AboutScreen.js';
 const BUTTON_1_KEY = 'button_1'
 const BUTTON_2_KEY = 'button_2'
 const DIRECTION_KEY = 'direction'
+const MARGIN_KEY = 'margin'
 const Stack = createStackNavigator();
 
 const button_1_default = {
@@ -31,7 +32,6 @@ const button_1_default = {
   fontColor: '#ffffff',
   backgroundColor: '#1F894B',
   fontSize: 100,
-  inEdit:false,
 };
 const button_2_default = {
   key: 'button_2',
@@ -40,7 +40,6 @@ const button_2_default = {
   fontColor: '#ffffff',
   backgroundColor: '#c0392b',
   fontSize: 100,
-  inEdit:false,
 };
 
 export default class App extends React.Component {
@@ -49,8 +48,23 @@ export default class App extends React.Component {
     this.state = {
       isReady: false,
       direction: 'row',
-      button_1:{button_1_default},
-      button_2:{button_2_default}
+      margin:10,
+      button_1: {
+        key: 'button_1',
+        textValue: 'YES',
+        speakText: 'YES',
+        fontColor: '#ffffff',
+        backgroundColor: '#1F894B',
+        fontSize: 100,
+      },
+      button_2: {
+        key: 'button_2',
+        textValue: 'NO',
+        speakText: 'NO',
+        fontColor: '#ffffff',
+        backgroundColor: '#c0392b',
+        fontSize: 100,
+      }
     };
   }
 
@@ -68,6 +82,10 @@ export default class App extends React.Component {
       const direction = await AsyncStorage.getItem(DIRECTION_KEY)
       if (direction !== null) {
         this.setState({ direction: JSON.parse(direction) });
+      }
+      const margin = await AsyncStorage.getItem(MARGIN_KEY)
+      if (margin !== null) {
+        this.setState({ margin: JSON.parse(margin) });
       }
       const button1 = await AsyncStorage.getItem(BUTTON_1_KEY)
       if (button1 !== null) {
@@ -95,6 +113,10 @@ export default class App extends React.Component {
     this.setState({ direction: direction_data });
     this.storeAsync(DIRECTION_KEY, this.state.direction);
   }
+  updateMargin = (margin_data) => {
+    this.setState({ margin: margin_data });
+    this.storeAsync(MARGIN_KEY, this.state.margin);
+  }
   updateButton = (button_1_data, button_2_data) => {
     this.setState({ button_1: button_1_data });
     this.setState({ button_2: button_2_data });
@@ -113,9 +135,11 @@ export default class App extends React.Component {
       <SettingsContext.Provider value={{
         button_1: this.state.button_1,
         button_2: this.state.button_2,
+        updateButton: this.updateButton,
         direction: this.state.direction,
         updateDirection: this.updateDirection,
-        updateButton: this.updateButton,
+        margin: this.state.margin,
+        updateMargin: this.updateMargin,
         restoreDefaults: this.restoreDefaults,
       }}>
         <StyleProvider style={getTheme(commonColor)}>

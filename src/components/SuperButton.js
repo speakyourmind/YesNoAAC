@@ -15,7 +15,7 @@ export default class SuperButton extends Component {
         return (
             <View style={{ flexGrow: 1 }} >
                 <Button full disabled={this.props.disabled} onChange={this.props.onChange}
-                    style={{ margin: 10, flexGrow: 1, backgroundColor: this.props.backgroundColor }}
+                    style={{ margin: this.props.margin, flexGrow: 1, backgroundColor: this.props.backgroundColor }}
                     onPress={() => {
                         Tts.speak(this.props.textValue)
                     }} >

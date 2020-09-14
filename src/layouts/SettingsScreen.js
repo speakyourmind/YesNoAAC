@@ -8,6 +8,7 @@ import { TextInput, StyleSheet, Alert } from 'react-native';
 import Icon from 'react-native-ionicons';
 import { SettingsContext } from '../../SettingsContext';
 import SuperButton from '../components/SuperButton.js';
+import Slider from '@react-native-community/slider';
 
 export default class SettingsScreen extends React.Component {
   constructor(props) {
@@ -39,18 +40,17 @@ export default class SettingsScreen extends React.Component {
       <Container>
         <Header >
           <Left style={{ flex: 1 }}>
-            <Button transparent 
-            accessibilityLabel="Go back"
-            accessibilityHint="Navigates to the home screen."
-            onPress={() =>
-              this.props.navigation.navigate('Home')
-            }>
+            <Button transparent
+              accessibilityLabel="Go back"
+              accessibilityHint="Navigates to the home screen."
+              onPress={() =>
+                this.props.navigation.navigate('Home')
+              }>
               <Icon name='ios-arrow-back' color='#ffffff' />
 
               <Title style={{ paddingLeft: 50 }}>Settings</Title>
             </Button>
           </Left>
-          <Body />
           <Right style={{ flex: 1 }}>
             <Button transparent>
               <Icon name='ios-information-circle-outline' color='#ffffff' onPress={() =>
@@ -79,6 +79,24 @@ export default class SettingsScreen extends React.Component {
                     <Picker.Item label="Column Wise" value="col" />
                   </Picker>
                 </View>
+              </Body>
+            </ListItem>
+            <ListItem>
+              <Body>
+                <Text style={styles.titleText}>Button Gap</Text>
+                <Slider
+                  style={{ width: 300, flex: 1 }}
+                  minimumValue={10}
+                  maximumValue={250}
+                  minimumTrackTintColor="#277CB4"
+                  maximumTrackTintColor="#000000"
+                  thumbTintColor="#277CB4"
+                  value={this.context.margin}
+                  onValueChange={(value) => {
+                    this.context.margin = value;
+                    this.context.updateMargin(this.context.margin);
+                  }}
+                />
               </Body>
             </ListItem>
             <ListItem>
