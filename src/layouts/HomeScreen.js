@@ -57,7 +57,7 @@ export default class HomeScreen extends React.Component {
                       borderWidth: 2
                     }}>
                       <Button full style={{ width: 300, flexGrow: 1, backgroundColor: this.context.button_1.backgroundColor }}>
-                        <Text style={{ fontSize: this.context.button_1.fontSize, color: this.context.button_1.fontColor }}>
+                        <Text style={{ fontSize: this.context.fontSize, color: this.context.button_1.fontColor }}>
                           {this.context.button_1.textValue}
                         </Text>
                       </Button>
@@ -76,24 +76,6 @@ export default class HomeScreen extends React.Component {
                       borderWidth={2}
                       onChangeText={(text) => {
                         button_1.textValue = text;
-                        this.context.updateButton(button_1, button_2);
-                      }}
-                    />
-                  </Body>
-                </ListItem>
-                <ListItem>
-                  <Body>
-                    <Text style={styles.titleText}>Text Size</Text>
-                    <Slider
-                      style={{ width: 325, flex: 1, marginTop: 15, marginBottom: 5 }}
-                      minimumValue={10}
-                      maximumValue={250}
-                      minimumTrackTintColor="#277CB4"
-                      maximumTrackTintColor="#000000"
-                      thumbTintColor="#277CB4"
-                      value={this.context.button_1.fontSize}
-                      onValueChange={(value) => {
-                        button_1.fontSize = value;
                         this.context.updateButton(button_1, button_2);
                       }}
                     />
@@ -165,7 +147,7 @@ export default class HomeScreen extends React.Component {
           fontColor={this.context.button_1.fontColor}
           backgroundColor={this.context.button_1.backgroundColor}
           margin={this.context.margin}
-          fontSize={this.context.button_1.fontSize} disabled={this.state.editMode} />
+          fontSize={this.context.fontSize} disabled={this.state.editMode} />
         {this.state.editMode &&
           <Fab style={{ backgroundColor: '#2c3e50' }} direction="up" position="bottomRight" visible="" onPress={() => {
             this.setState({ modal1Visible: true });
@@ -208,7 +190,7 @@ export default class HomeScreen extends React.Component {
                       borderWidth: 2
                     }}>
                       <Button full style={{ width: 300, flexGrow: 1, backgroundColor: this.context.button_2.backgroundColor }}>
-                        <Text style={{ fontSize: 100, color: this.context.button_2.fontColor }}>
+                        <Text style={{ fontSize: this.context.fontSize, color: this.context.button_2.fontColor }}>
                           {this.context.button_2.textValue}
                         </Text>
                       </Button>
@@ -319,7 +301,7 @@ export default class HomeScreen extends React.Component {
           fontColor={this.context.button_2.fontColor}
           backgroundColor={this.context.button_2.backgroundColor}
           margin={this.context.margin}
-          fontSize={this.context.button_2.fontSize}
+          fontSize={this.context.fontSize}
           disabled={this.state.editMode} />
         {this.state.editMode &&
           <Fab style={{ backgroundColor: '#2c3e50' }} direction="up" position="bottomRight" visible="" onPress={() => {

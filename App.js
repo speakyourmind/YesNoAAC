@@ -23,24 +23,24 @@ const BUTTON_1_KEY = 'button_1'
 const BUTTON_2_KEY = 'button_2'
 const DIRECTION_KEY = 'direction'
 const MARGIN_KEY = 'margin'
-const Stack = createStackNavigator();
-
-const button_1_default = {
+const FONT_SIZE_KEY = 'fontSize'
+const FONT_SIZE_DEFAULT=100
+const BUTTON_1_DEFAULT = {
   key: 'button_1',
   textValue: 'YES',
   speakText: 'YES',
   fontColor: '#ffffff',
-  backgroundColor: '#1F894B',
-  fontSize: 100,
+  backgroundColor: '#1F894B'
 };
-const button_2_default = {
+const BUTTON_2_DEFAULT = {
   key: 'button_2',
   textValue: 'NO',
   speakText: 'NO',
   fontColor: '#ffffff',
-  backgroundColor: '#c0392b',
-  fontSize: 100,
+  backgroundColor: '#c0392b'
 };
+
+const Stack = createStackNavigator();
 
 export default class App extends React.Component {
   constructor(props) {
@@ -55,7 +55,6 @@ export default class App extends React.Component {
         speakText: 'YES',
         fontColor: '#ffffff',
         backgroundColor: '#1F894B',
-        fontSize: 100,
       },
       button_2: {
         key: 'button_2',
@@ -63,7 +62,6 @@ export default class App extends React.Component {
         speakText: 'NO',
         fontColor: '#ffffff',
         backgroundColor: '#c0392b',
-        fontSize: 100,
       }
     };
   }
@@ -86,6 +84,10 @@ export default class App extends React.Component {
       const margin = await AsyncStorage.getItem(MARGIN_KEY)
       if (margin !== null) {
         this.setState({ margin: JSON.parse(margin) });
+      }
+      const fontSize = await AsyncStorage.getItem(FONT_SIZE_KEY)
+      if (fontSize !== null) {
+        this.setState({ fontSize: JSON.parse(fontSize) });
       }
       const button1 = await AsyncStorage.getItem(BUTTON_1_KEY)
       if (button1 !== null) {
@@ -117,6 +119,10 @@ export default class App extends React.Component {
     this.setState({ margin: margin_data });
     this.storeAsync(MARGIN_KEY, this.state.margin);
   }
+  updateFontSize = (fontSize_data) => {
+    this.setState({ fontSize: fontSize_data });
+    this.storeAsync(FONT_SIZE_KEY, this.state.fontSize);
+  }
   updateButton = (button_1_data, button_2_data) => {
     this.setState({ button_1: button_1_data });
     this.setState({ button_2: button_2_data });
@@ -128,7 +134,8 @@ export default class App extends React.Component {
   restoreDefaults = () => {
     this.updateDirection('row');
     this.updateMargin(10);
-    this.updateButton(button_1_default, button_2_default);
+    this.updateFontSize(FONT_SIZE_DEFAULT);
+    this.updateButton(BUTTON_1_DEFAULT, BUTTON_2_DEFAULT);
   }
 
   render() {
@@ -141,6 +148,8 @@ export default class App extends React.Component {
         updateDirection: this.updateDirection,
         margin: this.state.margin,
         updateMargin: this.updateMargin,
+        fontSize: this.state.fontSize,
+        updateFontSize: this.updateFontSize,
         restoreDefaults: this.restoreDefaults,
       }}>
         <StyleProvider style={getTheme(commonColor)}>

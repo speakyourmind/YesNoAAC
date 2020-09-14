@@ -99,6 +99,24 @@ export default class SettingsScreen extends React.Component {
                 />
               </Body>
             </ListItem>
+                <ListItem>
+                  <Body>
+                    <Text style={styles.titleText}>Font Size</Text>
+                    <Slider
+                      style={{ width: 325, flex: 1, marginTop: 15, marginBottom: 5 }}
+                      minimumValue={10}
+                      maximumValue={200}
+                      step={10}
+                      minimumTrackTintColor="#277CB4"
+                      maximumTrackTintColor="#000000"
+                      thumbTintColor="#277CB4"
+                      value={this.context.fontSize}
+                      onValueChange={(value) => {
+                        this.context.updateFontSize(value);
+                      }}
+                    />
+                  </Body>
+                </ListItem>
             <ListItem>
               <Body>
                 <Button full info onPress={() =>
