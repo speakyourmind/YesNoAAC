@@ -9,15 +9,15 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { StyleProvider } from "native-base";
-import React, { useState, useEffect } from 'react'
+import React from 'react';
 import 'react-native-gesture-handler';
 import SplashScreen from 'react-native-splash-screen';
 import getTheme from './native-base-theme/components';
 import commonColor from './native-base-theme/variables/commonColor';
 import { SettingsContext } from './SettingsContext';
+import AboutScreen from './src/layouts/AboutScreen.js';
 import HomeScreen from './src/layouts/HomeScreen.js';
 import SettingsScreen from './src/layouts/SettingsScreen.js';
-import AboutScreen from './src/layouts/AboutScreen.js';
 
 const BUTTON_1_KEY = 'button_1'
 const BUTTON_2_KEY = 'button_2'

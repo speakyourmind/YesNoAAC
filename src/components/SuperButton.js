@@ -12,6 +12,7 @@ import Icon from 'react-native-ionicons';
 import TTSButton from '../components/TTSButton.js';
 import { SettingsContext } from '../../SettingsContext';
 import SettingsSlider from '../components/SettingsSlider.js';
+import { styles } from './styles';
 
 
 export default class SuperButton extends Component {
@@ -35,7 +36,8 @@ export default class SuperButton extends Component {
                     visible={this.state.inEdit}
                     onRequestClose={() => {
                         this.setState({ inEdit: false });
-                    }}>
+                    }}
+                    >
                     <Header>
                         <Left style={{ flex: 1 }}>
                             <Button transparent onPress={() => {
@@ -48,14 +50,11 @@ export default class SuperButton extends Component {
                         <Right></Right>
                     </Header>
                     <SafeAreaView style={styles.container}>
-                        <ScrollView style={styles.scrollView}>
+                        <ScrollView >
                             <List>
                                 <ListItem style={{ height: 200, flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center', }} >
                                     <Body >
-                                        <View style={{
-                                            borderColor: '#000000',
-                                            borderWidth: 2
-                                        }}>
+                                        <View style={styles.bordered}>
                                             <Button full style={{ width: 300, flexGrow: 1, backgroundColor: buttonData.backgroundColor }}>
                                                 <Text style={{ fontSize: buttonData.fontSize, color: buttonData.fontColor }}>
                                                     {buttonData.textValue}
@@ -64,7 +63,7 @@ export default class SuperButton extends Component {
                                         </View>
                                     </Body>
                                 </ListItem>
-                                <Separator style={{ backgroundColor: '#2e343b', marginTop: 10 }} >
+                                <Separator style={styles.separator} >
                                     <Text color='#ffffff' style={{ fontSize: 18, color: '#fff' }}>TEXT</Text>
                                 </Separator>
                                 <ListItem>
@@ -86,9 +85,9 @@ export default class SuperButton extends Component {
                                     <Body>
                                         <Text style={styles.titleText}>Font Size</Text>
                                         <SettingsSlider
-                                         minimumValue={10}
-                                         maximumValue={200}
-                                         step={10}
+                                            minimumValue={10}
+                                            maximumValue={200}
+                                            step={10}
                                             value={buttonData.fontSize}
                                             onSlidingComplete={(value) => {
                                                 buttonWithProps.fontSize = value;
@@ -123,10 +122,10 @@ export default class SuperButton extends Component {
                                     </Body>
                                 </ListItem>
 
-                                <Separator style={{ backgroundColor: '#2e343b', marginTop: 10 }} >
+                                <Separator style={styles.separator} >
                                     <Text color='#ffffff' style={{ fontSize: 18, color: '#fff' }}>BACKGROUND</Text>
                                 </Separator>
-                                <ListItem>
+                                <ListItem last>
                                     <Body>
                                         <Text style={styles.titleText}>Background Color</Text>
                                         <View style={styles.pickerView}>
@@ -151,7 +150,6 @@ export default class SuperButton extends Component {
                                         </View>
                                     </Body>
                                 </ListItem>
-
                             </List>
 
                         </ScrollView>
@@ -163,9 +161,10 @@ export default class SuperButton extends Component {
                     fontColor={buttonData.fontColor}
                     backgroundColor={buttonData.backgroundColor}
                     margin={this.context.margin}
-                    fontSize={buttonData.fontSize} disabled={this.context.editMode} />
+                    fontSize={buttonData.fontSize}
+                    disabled={this.context.editMode} />
                 {this.context.editMode &&
-                    <Fab style={{ backgroundColor: '#2c3e50' }} direction="up" position="bottomRight" visible="" onPress={() => {
+                    <Fab style={styles.backgroundDark} direction="up" position="bottomRight" visible="" onPress={() => {
                         this.setState({ inEdit: true });
                     }}>
                         <Icon name="md-create" color="#ffffff" />
@@ -177,42 +176,5 @@ export default class SuperButton extends Component {
     }
 
 }
-const styles = StyleSheet.create({
-    paddedTitle: {
-        paddingLeft: 40
-    },
-    titleText: {
-        fontWeight: 'bold',
-        fontSize: 18,
-        color: '#000'
-    },
-    input: {
-        marginTop: 10,
-        marginLeft: 10,
-        marginRight: 10
-    },
-    modalView: {
-        margin: 10,
-        backgroundColor: "white",
-        padding: 10,
-        alignItems: "center",
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
-    },
-    pickerView: {
-        width: 300,
-        marginTop: 10,
-        marginLeft: 10,
-        marginRight: 10,
-        borderColor: '#000000',
-        borderWidth: 2,
-        alignSelf: 'stretch'
-    }
-});
+
 SuperButton.contextType = SettingsContext;
