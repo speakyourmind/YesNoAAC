@@ -3,6 +3,7 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import Icon from 'react-native-ionicons';
 import OpenURLButton from '../components/OpenURLButton.js';
+import { styles } from '../components/styles';
 
 const visitUsURL = "https://speakyourmindfoundation.org/";
 const getHelpURL = "https://speakyourmindfoundation.org/gethelp.html";
@@ -94,7 +95,3 @@ export default class AboutScreen extends React.Component {
     );
   }
 }
-const styles = StyleSheet.create({
-
-  titleText: { fontWeight: 'bold', fontSize: 18, color: '#000' },
-});

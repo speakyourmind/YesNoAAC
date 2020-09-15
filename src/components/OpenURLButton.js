@@ -1,6 +1,6 @@
 import React, { useCallback } from "react";
 import { Alert, Linking, StyleSheet, View, Button } from "react-native";
-import SuperButton from "./SuperButton.js";
+import SuperButton from "./TTSButton.js";
 
 const OpenButton = ({ url, children }) => {
   const handlePress = useCallback(async () => {

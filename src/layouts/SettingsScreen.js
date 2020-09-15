@@ -1,20 +1,19 @@
 import {
-  Body, Container, Content, Form, Header,
-  Item, Label, Right, Left, Button,
-  Separator, Text, Title, Picker, List, ListItem, View, Tab, Tabs
+  Body,
+  Button, Container, Content, Header,
+  Left,
+  List, ListItem, Picker, Right,
+  Text, Title, View
 } from "native-base";
 import React from "react";
-import { TextInput, StyleSheet, Alert } from 'react-native';
+import { Alert } from 'react-native';
 import Icon from 'react-native-ionicons';
 import { SettingsContext } from '../../SettingsContext';
-import SuperButton from '../components/SuperButton.js';
-import Slider from '@react-native-community/slider';
+import SettingsSlider from '../components/SettingsSlider.js';
+import { styles } from '../components/styles';
 
 export default class SettingsScreen extends React.Component {
-  constructor(props) {
-    super(props);
 
-  }
   restoreDefaultsAlert = () =>
     Alert.alert(
       "Restore Home Screen",
@@ -83,39 +82,17 @@ export default class SettingsScreen extends React.Component {
             <ListItem>
               <Body>
                 <Text style={styles.titleText}>Button Gap</Text>
-                <Slider
-                  style={{ width: 325, flex: 1, marginTop: 15, marginBottom: 5 }}
-                  minimumValue={0}
-                  maximumValue={100}
-                  minimumTrackTintColor="#277CB4"
-                  maximumTrackTintColor="#000000"
-                  thumbTintColor="#277CB4"
+                <SettingsSlider
                   value={this.context.margin}
-                  onValueChange={(value) => {
+                  minimumValue={0}
+                  maximumValue={200}
+                  step={5}
+                  onSlidingComplete={(value) => {
                     this.context.updateMargin(value);
                   }}
                 />
               </Body>
             </ListItem>
-                <ListItem>
-                  <Body>
-                    <Text style={styles.titleText}>Font Size</Text>
-                    <Slider
-                      style={{ width: 325, flex: 1, marginTop: 15, marginBottom: 5 }}
-                      minimumValue={10}
-                      maximumValue={200}
-                      step={10}
-                      minimumTrackTintColor="#277CB4"
-                      maximumTrackTintColor="#000000"
-                      thumbTintColor="#277CB4"
-                      value={this.context.fontSize}
-                      onSlidingComplete={(value) => {
-                        console.log("Font Size Slider: "+value);
-                        this.context.updateFontSize(value);
-                      }}
-                    />
-                  </Body>
-                </ListItem>
             <ListItem>
               <Body>
                 <Button full info onPress={() =>
@@ -131,21 +108,4 @@ export default class SettingsScreen extends React.Component {
     );
   }
 }
-const styles = StyleSheet.create({
-
-  pickerView: {
-    width: 300,
-    marginTop: 5,
-    marginLeft: 5,
-    marginRight: 5,
-    borderColor: '#000000',
-    borderWidth: 2,
-    alignSelf: 'stretch'
-  },
-  titleText: {
-    fontWeight: 'bold',
-    fontSize: 18,
-    color: '#000'
-  },
-});
 SettingsScreen.contextType = SettingsContext;
