@@ -5,5 +5,5 @@
     <img src="https://github.com/speakyourmind/YesNoAAC/blob/master/src/assets/images/screenshot_edit.jpg" width="225" height="400" alt="Button edit screen">
 </p>
 <p> 
-    <img src="https://github.com/speakyourmind/YesNoAAC/blob/master/src/assets/images/screenshot_customize.jpg" width="225" height="400" alt="Button edit screen">
+    <img src="https://github.com/speakyourmind/YesNoAAC/blob/master/src/assets/images/screenshot_customize.jpg" width="400" height="225" alt="Button edit screen">
 </p>
