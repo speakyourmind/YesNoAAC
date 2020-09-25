@@ -19,8 +19,6 @@ export default class HomeScreen extends React.Component {
   render() {
     var button_1 = { ...this.context.button_1 };
     var button_2 = { ...this.context.button_2 };
-
-
     const button1 = <SuperButton asyncKey="button_1" buttonData={this.context.button_1} buttonWithProps={button_1} />;
     const button2 = <SuperButton asyncKey="button_2" buttonData={this.context.button_2} buttonWithProps={button_2} />
 

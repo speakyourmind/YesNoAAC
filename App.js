@@ -47,12 +47,28 @@ const Stack = createStackNavigator();
 
 export default class App extends React.Component {
   state = {
-    editMode:false,
+    editMode: false,
     isReady: false,
     direction: 'row',
     margin: 10,
-    button_1: { BUTTON_1_DEFAULT },
-    button_2: { BUTTON_2_DEFAULT },
+    button_1: {
+      key: 'button_1',
+      textValue: 'YES',
+      speakText: 'YES',
+      fontColor: '#ffffff',
+      backgroundColor: '#1F894B',
+      fontSize: 100,
+      inEdit: false,
+    },
+    button_2: {
+      key: 'button_2',
+      textValue: 'NO',
+      speakText: 'NO',
+      fontColor: '#ffffff',
+      backgroundColor: '#c0392b',
+      fontSize: 100,
+      inEdit: false,
+    },
   };
 
   componentDidMount() {
@@ -64,10 +80,10 @@ export default class App extends React.Component {
   }
 
   loadAsyncData = async () => {
- 
+
     try {
       const direction = await AsyncStorage.getItem(DIRECTION_KEY)
-      
+
       if (direction !== null) {
         this.setState({ direction: JSON.parse(direction) });
       }
@@ -114,17 +130,17 @@ export default class App extends React.Component {
     this.storeAsync(BUTTON_1_KEY, button_1_data);
     this.storeAsync(BUTTON_2_KEY, button_2_data);
   }
-  
-  updateComponent = (key,state,data) =>{
+
+  updateComponent = (key, state, data) => {
     // TODO
-    if(key === BUTTON_1_KEY){
-    this.setState({ button_1: data });
-    } 
-    if(key === BUTTON_2_KEY){
+    if (key === BUTTON_1_KEY) {
+      this.setState({ button_1: data });
+    }
+    if (key === BUTTON_2_KEY) {
       this.setState({ button_2: data });
     }
     this.storeAsync(key, data);
-    
+
   }
 
   clearStorage = async () => {
@@ -140,29 +156,29 @@ export default class App extends React.Component {
     this.updateButton(BUTTON_1_DEFAULT, BUTTON_2_DEFAULT);
   }
 
-  toggleEditMode=()=>{
+  toggleEditMode = () => {
     this.setState({ editMode: !this.state.editMode });
   }
 
   render() {
     return (
       <SettingsContext.Provider value={{
-        editMode:this.state.editMode,
-        toggleEditMode:this.toggleEditMode,
-  
+        editMode: this.state.editMode,
+        toggleEditMode: this.toggleEditMode,
+
         button_1: this.state.button_1,
         button_2: this.state.button_2,
         updateButton: this.updateButton,
-  
+
         direction: this.state.direction,
         updateDirection: this.updateDirection,
-  
+
         margin: this.state.margin,
         updateMargin: this.updateMargin,
-  
+
         restoreDefaults: this.restoreDefaults,
-  
-        updateComponent:this.updateComponent,
+
+        updateComponent: this.updateComponent,
       }}>
         <StyleProvider style={getTheme(commonColor)}>
           <NavigationContainer>

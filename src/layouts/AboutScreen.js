@@ -1,6 +1,5 @@
 import { Body, Button, Container, Content, Header, Left, List, ListItem, Right, Text, Title } from "native-base";
 import React from "react";
-import { StyleSheet } from "react-native";
 import Icon from 'react-native-ionicons';
 import OpenURLButton from '../components/OpenURLButton.js';
 import { styles } from '../components/styles';
@@ -51,16 +50,6 @@ export default class AboutScreen extends React.Component {
             </ListItem>
             <ListItem>
               <Body>
-                <Text style={styles.titleText}>We need your help</Text>
-                <Text>Pay it forward to the next person in need.</Text>
-              </Body>
-              <Right>
-                <OpenURLButton url={donateURL} buttonText='DONATE'>
-                </OpenURLButton>
-              </Right>
-            </ListItem>
-            <ListItem>
-              <Body>
                 <Text style={styles.titleText}>Need something custom?</Text>
                 <Text>Fill out our questionnaire and we'll get in touch.</Text>
               </Body>
@@ -72,7 +61,7 @@ export default class AboutScreen extends React.Component {
             <ListItem>
               <Body>
                 <Text style={styles.titleText}>Version</Text>
-                <Text numberOfLines={1}>v0.0.1</Text>
+                <Text numberOfLines={1}>v0.0.2</Text>
               </Body>
             </ListItem>
             <ListItem>
