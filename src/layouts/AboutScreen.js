@@ -6,7 +6,6 @@ import { styles } from '../components/styles';
 
 const visitUsURL = "https://speakyourmindfoundation.org/";
 const getHelpURL = "https://speakyourmindfoundation.org/gethelp.html";
-const donateURL = "https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=QY6S73LW86FA8&source=url";
 
 export default class AboutScreen extends React.Component {
   render() {
@@ -61,7 +60,7 @@ export default class AboutScreen extends React.Component {
             <ListItem>
               <Body>
                 <Text style={styles.titleText}>Version</Text>
-                <Text numberOfLines={1}>v0.0.2</Text>
+                <Text numberOfLines={1}>0.0.3</Text>
               </Body>
             </ListItem>
             <ListItem>

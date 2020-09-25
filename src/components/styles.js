@@ -42,8 +42,10 @@ const styles = StyleSheet.create({
         borderWidth: 2
     },
     separator: {
-        backgroundColor: '#2c3e50', 
         marginTop: 10
+    },
+    editHeader:{
+        backgroundColor: '#277CB4' 
     },
     backgroundDark:{ 
         backgroundColor: '#2c3e50' 

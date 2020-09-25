@@ -1,17 +1,18 @@
 import {
     Body, Button,
     Fab, Header,
-    Left, List, ListItem, Picker, Right, Separator, Text, Title, View
+    Left, List, ListItem, Right, Separator, Text, Title, View
 } from "native-base";
 import { Component, default as React } from "react";
 import {
     Modal,
-    SafeAreaView, ScrollView, TextInput, StyleSheet,
+    SafeAreaView, ScrollView, TextInput
 } from "react-native";
 import Icon from 'react-native-ionicons';
-import TTSButton from '../components/TTSButton.js';
 import { SettingsContext } from '../../SettingsContext';
-import SettingsSlider from '../components/SettingsSlider.js';
+import TTSButton from '../components/TTSButton.js';
+import ColourPicker from './ColourPicker.js';
+import SettingsSlider from './SettingsSlider.js';
 import { styles } from './styles';
 
 
@@ -37,7 +38,7 @@ export default class SuperButton extends Component {
                     onRequestClose={() => {
                         this.setState({ inEdit: false });
                     }}
-                    >
+                >
                     <Header>
                         <Left style={{ flex: 1 }}>
                             <Button transparent onPress={() => {
@@ -63,7 +64,7 @@ export default class SuperButton extends Component {
                                         </View>
                                     </Body>
                                 </ListItem>
-                                <Separator style={styles.separator} >
+                                <Separator style={[styles.separator, styles.backgroundDark]} >
                                     <Text color='#ffffff' style={{ fontSize: 18, color: '#fff' }}>TEXT</Text>
                                 </Separator>
                                 <ListItem>
@@ -99,55 +100,30 @@ export default class SuperButton extends Component {
                                 <ListItem>
                                     <Body>
                                         <Text style={styles.titleText}>Text Color</Text>
-                                        <View style={styles.pickerView}>
-                                            <Picker
-                                                note
-                                                style={{ color: '#000', placeholderTextColor: '#000' }}
-                                                mode="dropdown"
-                                                selectedValue={buttonData.fontColor}
-                                                onValueChange={(text) => {
-                                                    buttonWithProps.fontColor = text;
-                                                    this.context.updateComponent(key, buttonData, buttonWithProps);
-                                                }}
-                                            >
-                                                <Picker.Item label="Black" value="#000000" />
-                                                <Picker.Item label="White" value="#ffffff" />
-                                                <Picker.Item label="Red" value="#c0392b" />
-                                                <Picker.Item label="Orange" value="#C75000" />
-                                                <Picker.Item label="Green" value="#1F894B" />
-                                                <Picker.Item label="Blue" value="#277CB4" />
-                                                <Picker.Item label="Purple" value="#8e44ad" />
-                                            </Picker>
-                                        </View>
+                                        <ColourPicker
+                                            selectedValue={buttonData.fontColor}
+                                            onValueChange={(text) => {
+                                                buttonWithProps.fontColor = text;
+                                                this.context.updateComponent(key, buttonData, buttonWithProps);
+                                            }}>
+                                        </ColourPicker>
                                     </Body>
                                 </ListItem>
 
-                                <Separator style={styles.separator} >
+                                <Separator style={[styles.separator, styles.backgroundDark]} >
                                     <Text color='#ffffff' style={{ fontSize: 18, color: '#fff' }}>BACKGROUND</Text>
                                 </Separator>
                                 <ListItem last>
                                     <Body>
                                         <Text style={styles.titleText}>Background Color</Text>
-                                        <View style={styles.pickerView}>
-                                            <Picker
-                                                note
-                                                style={{ color: '#000', placeholderTextColor: '#000' }}
-                                                mode="dropdown"
-                                                selectedValue={buttonData.backgroundColor}
-                                                onValueChange={(text) => {
-                                                    buttonWithProps.backgroundColor = text;
-                                                    this.context.updateComponent(key, buttonData, buttonWithProps);
-                                                }}
-                                            >
-                                                <Picker.Item label="Black" value="#000000" />
-                                                <Picker.Item label="White" value="#ffffff" />
-                                                <Picker.Item label="Red" value="#c0392b" />
-                                                <Picker.Item label="Orange" value="#C75000" />
-                                                <Picker.Item label="Green" value="#1F894B" />
-                                                <Picker.Item label="Blue" value="#277CB4" />
-                                                <Picker.Item label="Purple" value="#8e44ad" />
-                                            </Picker>
-                                        </View>
+                                        <ColourPicker
+                                            selectedValue={buttonData.backgroundColor}
+                                            onValueChange={(text) => {
+                                                buttonWithProps.backgroundColor = text;
+                                                this.context.updateComponent(key, buttonData, buttonWithProps);
+                                            }}
+                                        >
+                                        </ColourPicker>
                                     </Body>
                                 </ListItem>
                             </List>

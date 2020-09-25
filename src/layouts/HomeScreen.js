@@ -8,6 +8,7 @@ import { Col, Grid, Row } from 'react-native-easy-grid';
 import Icon from 'react-native-ionicons';
 import { SettingsContext } from '../../SettingsContext';
 import SuperButton from '../components/SuperButton.js';
+import EditButton from '../components/EditButton.js';
 import { styles } from '../components/styles';
 
 export default class HomeScreen extends React.Component {
@@ -51,11 +52,7 @@ export default class HomeScreen extends React.Component {
               <Title></Title>
             </Body>
             <Right>
-              <Button transparent onPress={() =>
-                this.context.toggleEditMode()
-              }>
-                <Icon name='md-create' color='#ffffff' />
-              </Button>
+              <EditButton></EditButton>
               <Button transparent>
                 <Icon name='ios-information-circle-outline' color='#ffffff' onPress={() =>
                   this.props.navigation.navigate('About')
@@ -65,7 +62,7 @@ export default class HomeScreen extends React.Component {
           </Header>
         }
         {this.context.editMode &&
-          <Header style={{ backgroundColor: '#277CB4' }} >
+          <Header style={styles.editHeader} >
             <Left style={{ flex: 1 }}>
               <Title style={styles.paddedTitle}>Editing Screen</Title>
             </Left>

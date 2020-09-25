@@ -131,8 +131,8 @@ android {
         applicationId "com.yesnoaac"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 2
-        versionName "0.0.2"
+        versionCode 3
+        versionName "0.0.3"
               
     }
 
@@ -165,8 +165,6 @@ android {
             signingConfig signingConfigs.debug
         }
         release {
-            // Caution! In production, you need to generate your own keystore file.
-            // see https://reactnative.dev/docs/signed-apk-android.
             signingConfig signingConfigs.release
             minifyEnabled enableProguardInReleaseBuilds
             
