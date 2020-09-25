@@ -10,7 +10,7 @@ import { Alert } from 'react-native';
 import Icon from 'react-native-ionicons';
 import { SettingsContext } from '../../SettingsContext';
 import SettingsSlider from '../components/SettingsSlider.js';
-import { styles } from '../components/styles';
+import { styles } from '../styles/styles';
 
 export default class SettingsScreen extends React.Component {
 

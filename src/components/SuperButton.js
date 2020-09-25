@@ -1,20 +1,12 @@
-import {
-    Body, Button,
-    Fab, Header,
-    Left, List, ListItem, Right, Separator, Text, Title, View
-} from "native-base";
+import { Body, Button, Fab, Header, Left, List, ListItem, Right, Separator, Text, Title, View } from "native-base";
 import { Component, default as React } from "react";
-import {
-    Modal,
-    SafeAreaView, ScrollView, TextInput
-} from "react-native";
+import { Modal, SafeAreaView, ScrollView, TextInput } from "react-native";
 import Icon from 'react-native-ionicons';
 import { SettingsContext } from '../../SettingsContext';
 import TTSButton from '../components/TTSButton.js';
-import ColourPicker from './ColourPicker.js';
+import SettingsColourPicker from './SettingsColourPicker.js';
 import SettingsSlider from './SettingsSlider.js';
-import { styles } from './styles';
-
+import { styles } from '../styles/styles';
 
 export default class SuperButton extends Component {
 
@@ -100,13 +92,13 @@ export default class SuperButton extends Component {
                                 <ListItem>
                                     <Body>
                                         <Text style={styles.titleText}>Text Color</Text>
-                                        <ColourPicker
+                                        <SettingsColourPicker
                                             selectedValue={buttonData.fontColor}
                                             onValueChange={(text) => {
                                                 buttonWithProps.fontColor = text;
                                                 this.context.updateComponent(key, buttonData, buttonWithProps);
                                             }}>
-                                        </ColourPicker>
+                                        </SettingsColourPicker>
                                     </Body>
                                 </ListItem>
 
@@ -116,14 +108,14 @@ export default class SuperButton extends Component {
                                 <ListItem last>
                                     <Body>
                                         <Text style={styles.titleText}>Background Color</Text>
-                                        <ColourPicker
+                                        <SettingsColourPicker
                                             selectedValue={buttonData.backgroundColor}
                                             onValueChange={(text) => {
                                                 buttonWithProps.backgroundColor = text;
                                                 this.context.updateComponent(key, buttonData, buttonWithProps);
                                             }}
                                         >
-                                        </ColourPicker>
+                                        </SettingsColourPicker>
                                     </Body>
                                 </ListItem>
                             </List>

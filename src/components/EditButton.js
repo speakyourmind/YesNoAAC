@@ -1,7 +1,7 @@
-import {Button, View, Text} from "native-base";
+import { Button, View } from "native-base";
 import React, { Component } from 'react';
-import { SettingsContext } from '../../SettingsContext';
 import Icon from 'react-native-ionicons';
+import { SettingsContext } from '../../SettingsContext';
 
 export default class EditButton extends Component {
 

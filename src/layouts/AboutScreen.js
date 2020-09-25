@@ -2,7 +2,7 @@ import { Body, Button, Container, Content, Header, Left, List, ListItem, Right, 
 import React from "react";
 import Icon from 'react-native-ionicons';
 import OpenURLButton from '../components/OpenURLButton.js';
-import { styles } from '../components/styles';
+import { styles } from '../styles/styles';
 
 const visitUsURL = "https://speakyourmindfoundation.org/";
 const getHelpURL = "https://speakyourmindfoundation.org/gethelp.html";

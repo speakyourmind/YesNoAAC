@@ -9,7 +9,7 @@ import Icon from 'react-native-ionicons';
 import { SettingsContext } from '../../SettingsContext';
 import SuperButton from '../components/SuperButton.js';
 import EditButton from '../components/EditButton.js';
-import { styles } from '../components/styles';
+import { styles } from '../styles/styles';
 
 export default class HomeScreen extends React.Component {
 

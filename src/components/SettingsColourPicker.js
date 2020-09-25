@@ -1,8 +1,8 @@
-import { Picker, View, Text } from "native-base";
+import { Picker, View } from "native-base";
 import React, { Component } from 'react';
-import { styles } from './styles';
+import { styles } from '../styles/styles';
 
-export default class ColourPicker extends Component {
+export default class SettingsColourPicker extends Component {
 
     render() {
         return (
