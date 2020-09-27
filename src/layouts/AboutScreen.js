@@ -60,7 +60,7 @@ export default class AboutScreen extends React.Component {
             <ListItem>
               <Body>
                 <Text style={styles.titleText}>Version</Text>
-                <Text numberOfLines={1}>0.0.3</Text>
+                <Text numberOfLines={1}>v0.0.4</Text>
               </Body>
             </ListItem>
             <ListItem>
@@ -73,7 +73,7 @@ export default class AboutScreen extends React.Component {
             <ListItem >
               <Body>
                 <Text style={styles.titleText}>Disclaimer</Text>
-                <Text>"Systems (hardware and software) provided by the SpeakYourMind Foundation are not medical devices and have not been approved for use by the FDA; therefore, these systems shall not be used or depended on to provide medical treatment or to make any form of healthcare decisions. Other means of communication must be used for any medical related purpose.</Text>
+                <Text>Systems (hardware and software) provided by the SpeakYourMind Foundation are not medical devices and have not been approved for use by the FDA; therefore, these systems shall not be used or depended on to provide medical treatment or to make any form of healthcare decisions. Other means of communication must be used for any medical related purpose.</Text>
               </Body>
 
             </ListItem>
