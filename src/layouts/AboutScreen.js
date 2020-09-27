@@ -12,7 +12,7 @@ export default class AboutScreen extends React.Component {
     return (
       <Container>
         <Header>
-          <Left style={{ flex: 1 }}>
+          <Left>
             <Button transparent
               accessibilityLabel="Go back"
               accessibilityHint="Navigates to the previous screen."
@@ -20,9 +20,13 @@ export default class AboutScreen extends React.Component {
                 this.props.navigation.goBack()
               }>
               <Icon name='ios-arrow-back' color='#ffffff' />
-              <Title style={{ paddingLeft: 40 }}>About Us</Title>
+
             </Button>
+
           </Left>
+          <Body>
+            <Title>About Us</Title>
+          </Body>
           <Right />
         </Header>
         <Content>

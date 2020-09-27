@@ -32,14 +32,17 @@ export default class SuperButton extends Component {
                     }}
                 >
                     <Header>
-                        <Left style={{ flex: 1 }}>
+                        <Left>
                             <Button transparent onPress={() => {
                                 this.setState({ inEdit: !this.state.inEdit });
                             }}>
                                 <Icon name='ios-arrow-back' color='#ffffff' />
-                                <Title style={styles.paddedTitle}>Edit Button 1</Title>
                             </Button>
                         </Left>
+                        <Body>
+                        <Title>Edit {key}</Title>
+
+                        </Body>
                         <Right></Right>
                     </Header>
                     <SafeAreaView style={styles.container}>

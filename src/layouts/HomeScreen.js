@@ -20,8 +20,8 @@ export default class HomeScreen extends React.Component {
   render() {
     var button_1 = { ...this.context.button_1 };
     var button_2 = { ...this.context.button_2 };
-    const button1 = <SuperButton asyncKey="button_1" buttonData={this.context.button_1} buttonWithProps={button_1} />;
-    const button2 = <SuperButton asyncKey="button_2" buttonData={this.context.button_2} buttonWithProps={button_2} />
+    const button1 = <SuperButton asyncKey="Button 1" buttonData={this.context.button_1} buttonWithProps={button_1} />;
+    const button2 = <SuperButton asyncKey="Button 2" buttonData={this.context.button_2} buttonWithProps={button_2} />
 
     let grid;
     if (this.context.direction === 'row') {
@@ -63,9 +63,11 @@ export default class HomeScreen extends React.Component {
         }
         {this.context.editMode &&
           <Header style={styles.editHeader} >
-            <Left style={{ flex: 1 }}>
-              <Title style={styles.paddedTitle}>Editing Screen</Title>
+            <Left>
             </Left>
+            <Body>
+              <Title>Editing Screen</Title>
+            </Body>
             <Right>
               <Button transparent onPress={() =>
                 this.context.toggleEditMode()

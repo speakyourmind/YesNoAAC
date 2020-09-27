@@ -38,7 +38,7 @@ export default class SettingsScreen extends React.Component {
     return (
       <Container>
         <Header >
-          <Left style={{ flex: 1 }}>
+          <Left>
             <Button transparent
               accessibilityLabel="Go back"
               accessibilityHint="Navigates to the home screen."
@@ -47,9 +47,12 @@ export default class SettingsScreen extends React.Component {
               }>
               <Icon name='ios-arrow-back' color='#ffffff' />
 
-              <Title style={{ paddingLeft: 40 }}>Settings</Title>
             </Button>
+
           </Left>
+          <Body>
+            <Title>Settings</Title>
+          </Body>
           <Right style={{ flex: 1 }}>
             <Button transparent>
               <Icon name='ios-information-circle-outline' color='#ffffff' onPress={() =>
