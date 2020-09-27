@@ -19,22 +19,22 @@ import AboutScreen from './src/layouts/AboutScreen.js';
 import HomeScreen from './src/layouts/HomeScreen.js';
 import SettingsScreen from './src/layouts/SettingsScreen.js';
 
-const BUTTON_1_KEY = 'button_1'
-const BUTTON_2_KEY = 'button_2'
+const BUTTON_1_KEY = 'Button 1'
+const BUTTON_2_KEY = 'Button 2'
 const DIRECTION_KEY = 'direction'
 const MARGIN_KEY = 'margin'
 
 const BUTTON_1_DEFAULT = {
-  key: 'button_1',
+  key: BUTTON_1_KEY,
   textValue: 'YES',
   speakText: 'YES',
   fontColor: '#ffffff',
-  backgroundColor: '#1F894B',
+  backgroundColor: '#1d781d',
   fontSize: 100,
   inEdit: false,
 };
 const BUTTON_2_DEFAULT = {
-  key: 'button_2',
+  key: BUTTON_2_KEY,
   textValue: 'NO',
   speakText: 'NO',
   fontColor: '#ffffff',
@@ -52,16 +52,16 @@ export default class App extends React.Component {
     direction: 'row',
     margin: 10,
     button_1: {
-      key: 'button_1',
+      key: BUTTON_1_KEY,
       textValue: 'YES',
       speakText: 'YES',
       fontColor: '#ffffff',
-      backgroundColor: '#1F894B',
+      backgroundColor: '#1d781d',
       fontSize: 100,
       inEdit: false,
     },
     button_2: {
-      key: 'button_2',
+      key: BUTTON_2_KEY,
       textValue: 'NO',
       speakText: 'NO',
       fontColor: '#ffffff',

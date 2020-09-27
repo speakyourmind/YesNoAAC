@@ -54,7 +54,8 @@ export default class SettingsScreen extends React.Component {
             <Title>Settings</Title>
           </Body>
           <Right style={{ flex: 1 }}>
-            <Button transparent>
+            <Button transparent 
+              style={{minWidth:50,minHeight:50}}>
               <Icon name='ios-information-circle-outline' color='#ffffff' onPress={() =>
                 this.props.navigation.navigate('About')
               } />
@@ -98,7 +99,8 @@ export default class SettingsScreen extends React.Component {
             </ListItem>
             <ListItem>
               <Body>
-                <Button full info onPress={() =>
+                <Button full info 
+              style={{minWidth:50,minHeight:50}} onPress={() =>
                   this.restoreDefaultsAlert()}>
                   <Text>RESTORE DEFAULTS</Text>
                 </Button>

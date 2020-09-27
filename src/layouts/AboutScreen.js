@@ -16,6 +16,7 @@ export default class AboutScreen extends React.Component {
             <Button transparent
               accessibilityLabel="Go back"
               accessibilityHint="Navigates to the previous screen."
+              style={{minWidth:50,minHeight:50}}
               onPress={() =>
                 this.props.navigation.goBack()
               }>

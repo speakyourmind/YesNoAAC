@@ -7,7 +7,7 @@ export default class SettingsSlider extends Component {
     render() {
         return (
             <Slider
-                style={{ width: 325, flex: 1, marginTop: 15, marginBottom: 5 }}
+                style={{ width: 325, flex: 1, marginTop: 15, marginBottom: 5,transform: [{ scaleX: 1.5 }, { scaleY: 2.0 }] }}
                 minimumValue={this.props.minimumValue}
                 maximumValue={this.props.maximumValue}
                 step={this.props.step}
