@@ -40,7 +40,7 @@ export default class HomeScreen extends React.Component {
     return (
       <Container>
         {!this.context.editMode &&
-          <Header>
+          <Header >
             <Left>
               <Button transparent
                 style={{ minWidth: 50, minHeight: 50 }} onPress={() =>

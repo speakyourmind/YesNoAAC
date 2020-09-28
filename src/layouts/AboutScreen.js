@@ -65,7 +65,7 @@ export default class AboutScreen extends React.Component {
             <ListItem>
               <Body>
                 <Text style={styles.titleText}>Version</Text>
-                <Text numberOfLines={1}>v0.0.4</Text>
+                <Text numberOfLines={1}>v0.0.5</Text>
               </Body>
             </ListItem>
             <ListItem>
