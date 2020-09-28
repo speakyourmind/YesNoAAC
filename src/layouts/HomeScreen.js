@@ -42,25 +42,19 @@ export default class HomeScreen extends React.Component {
         {!this.context.editMode &&
           <Header>
             <Left>
-              <Button transparent 
-              style={{minWidth:50,minHeight:50}} onPress={() =>
-                this.props.navigation.navigate('Settings')
-              }>
+              <Button transparent
+                style={{ minWidth: 50, minHeight: 50 }} onPress={() =>
+                  this.props.navigation.navigate('Settings')
+                }>
                 <Icon name='menu' color='#ffffff' />
               </Button>
             </Left>
             <Body>
               <Title></Title>
             </Body>
-            <Right>
-              <EditButton 
-              style={{minWidth:50,minHeight:50}}></EditButton>
-              <Button transparent 
-              style={{minWidth:50,minHeight:50}}>
-                <Icon name='ios-information-circle-outline' color='#ffffff' onPress={() =>
-                  this.props.navigation.navigate('About')
-                } />
-              </Button>
+            <Right style={{marginRight:10}}>
+              <EditButton style={{ minWidth: 50, minHeight: 50 }}></EditButton>
+              
             </Right>
           </Header>
         }

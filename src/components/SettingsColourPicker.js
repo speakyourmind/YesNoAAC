@@ -18,7 +18,7 @@ export default class SettingsColourPicker extends Component {
                     <Picker.Item label="White" value="#ffffff" />
                     <Picker.Item label="Red" value="#c0392b" />
                     <Picker.Item label="Orange" value="#C75000" />
-                    <Picker.Item label="Green" value="#1F894B" />
+                    <Picker.Item label="Green" value="#1d781d" />
                     <Picker.Item label="Blue" value="#277CB4" />
                     <Picker.Item label="Purple" value="#8e44ad" />
                 </Picker>

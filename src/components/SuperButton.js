@@ -31,7 +31,7 @@ export default class SuperButton extends Component {
                         this.setState({ inEdit: false });
                     }}
                 >
-                    <Header>
+                    <Header >
                         <Left>
                             <Button transparent onPress={() => {
                                 this.setState({ inEdit: !this.state.inEdit });
@@ -41,7 +41,6 @@ export default class SuperButton extends Component {
                         </Left>
                         <Body>
                         <Title>Edit {key}</Title>
-
                         </Body>
                         <Right></Right>
                     </Header>
