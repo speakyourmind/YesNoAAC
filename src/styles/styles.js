@@ -41,6 +41,10 @@ const styles = StyleSheet.create({
         borderColor: '#2c3e50',
         borderWidth: 2
     },
+    listItem:{
+        borderColor: '#2c3e50',
+        borderBottomWidth: 1,
+    },
     separator: {
         marginTop: 10
     },

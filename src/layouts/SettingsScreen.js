@@ -64,7 +64,7 @@ export default class SettingsScreen extends React.Component {
         </Header>
         <Content>
           <List>
-            <ListItem>
+            <ListItem style={styles.listItem}>
               <Body>
                 <Text style={styles.titleText}>Button Direction</Text>
                 <View style={styles.pickerView}>
@@ -83,7 +83,7 @@ export default class SettingsScreen extends React.Component {
                 </View>
               </Body>
             </ListItem>
-            <ListItem>
+            <ListItem style={styles.listItem}>
               <Body>
                 <Text style={styles.titleText}>Button Gap</Text>
                 <SettingsSlider
@@ -97,18 +97,14 @@ export default class SettingsScreen extends React.Component {
                 />
               </Body>
             </ListItem>
-            <ListItem>
-              <Body>
-                <Button full info
-                  style={{minWidth: 50, minHeight: 50, maxWidth: 300, marginLeft: 10,}} onPress={() =>
-                    this.restoreDefaultsAlert()}>
-                  <Text>RESTORE DEFAULTS</Text>
-                </Button>
-              </Body>
-            </ListItem>
           </List>
 
         </Content>
+        <Button full info
+          style={{ minWidth: 50, minHeight: 50, }} onPress={() =>
+            this.restoreDefaultsAlert()}>
+          <Text>RESTORE DEFAULTS</Text>
+        </Button>
       </Container >
     );
   }

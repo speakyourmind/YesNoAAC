@@ -32,7 +32,7 @@ export default class AboutScreen extends React.Component {
         </Header>
         <Content>
           <List>
-            <ListItem>
+            <ListItem style={styles.listItem}>
               <Body style={{ flex: 1 }}>
                 <Text style={styles.titleText}>SpeakYourMind Foundation</Text>
                 <Text>We are a 501(c)(3) nonprofit organization spun out of the BrainGate Lab at Brown University and Massachusetts General Hospital.
@@ -42,7 +42,7 @@ export default class AboutScreen extends React.Component {
               </Body>
             </ListItem>
 
-            <ListItem>
+            <ListItem style={styles.listItem}>
               <Body>
                 <Text style={styles.titleText}>Learn More</Text>
                 <Text>Visit our website to find out more about who we are and who we help.</Text>
@@ -52,7 +52,7 @@ export default class AboutScreen extends React.Component {
                 </OpenURLButton>
               </Right>
             </ListItem>
-            <ListItem>
+            <ListItem style={styles.listItem}>
               <Body>
                 <Text style={styles.titleText}>Need something custom?</Text>
                 <Text>Fill out our questionnaire and we'll get in touch.</Text>
@@ -62,13 +62,13 @@ export default class AboutScreen extends React.Component {
                 </OpenURLButton>
               </Right>
             </ListItem>
-            <ListItem>
+            <ListItem style={styles.listItem}>
               <Body>
                 <Text style={styles.titleText}>Version</Text>
-                <Text numberOfLines={1}>v0.0.5</Text>
+                <Text numberOfLines={1}>v0.0.6</Text>
               </Body>
             </ListItem>
-            <ListItem>
+            <ListItem style={styles.listItem}>
               <Body>
                 <Text style={styles.titleText}>Contact</Text>
                 <Text numberOfLines={1}>support@speakyourmindfoundation.org</Text>

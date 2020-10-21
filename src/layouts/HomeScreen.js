@@ -60,8 +60,7 @@ export default class HomeScreen extends React.Component {
         }
         {this.context.editMode &&
           <Header style={styles.editHeader} >
-            <Left>
-            </Left>
+            <Left/>
             <Body>
               <Title>Editing Screen</Title>
             </Body>
