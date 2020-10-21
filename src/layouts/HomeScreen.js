@@ -52,10 +52,11 @@ export default class HomeScreen extends React.Component {
             <Body>
               <Title></Title>
             </Body>
-            <Right style={{marginRight:10}}>
+            <Right>
               <EditButton style={{ minWidth: 50, minHeight: 50 }}></EditButton>
               
             </Right>
+            
           </Header>
         }
         {this.context.editMode &&
@@ -65,10 +66,12 @@ export default class HomeScreen extends React.Component {
               <Title>Editing Screen</Title>
             </Body>
             <Right>
-              <Button transparent onPress={() =>
+              <Button transparent 
+              style={{ minWidth: 50, minHeight: 50 }}
+              onPress={() =>
                 this.context.toggleEditMode()
               }>
-                <Text>DONE</Text>
+                <Text style={styles.headerText}>DONE</Text>
               </Button>
             </Right>
           </Header>

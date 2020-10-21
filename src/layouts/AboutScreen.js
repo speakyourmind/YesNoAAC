@@ -33,6 +33,12 @@ export default class AboutScreen extends React.Component {
         <Content>
           <List>
             <ListItem style={styles.listItem}>
+              <Body>
+                <Text style={styles.titleText}>Version</Text>
+                <Text numberOfLines={1}>v0.0.6</Text>
+              </Body>
+            </ListItem>
+            <ListItem style={styles.listItem}>
               <Body style={{ flex: 1 }}>
                 <Text style={styles.titleText}>SpeakYourMind Foundation</Text>
                 <Text>We are a 501(c)(3) nonprofit organization spun out of the BrainGate Lab at Brown University and Massachusetts General Hospital.
@@ -62,26 +68,13 @@ export default class AboutScreen extends React.Component {
                 </OpenURLButton>
               </Right>
             </ListItem>
-            <ListItem style={styles.listItem}>
-              <Body>
-                <Text style={styles.titleText}>Version</Text>
-                <Text numberOfLines={1}>v0.0.6</Text>
-              </Body>
-            </ListItem>
-            <ListItem style={styles.listItem}>
+            <ListItem last>
               <Body>
                 <Text style={styles.titleText}>Contact</Text>
                 <Text numberOfLines={1}>support@speakyourmindfoundation.org</Text>
               </Body>
             </ListItem>
 
-            <ListItem >
-              <Body>
-                <Text style={styles.titleText}>Disclaimer</Text>
-                <Text>Systems (hardware and software) provided by the SpeakYourMind Foundation are not medical devices and have not been approved for use by the FDA; therefore, these systems shall not be used or depended on to provide medical treatment or to make any form of healthcare decisions. Other means of communication must be used for any medical related purpose.</Text>
-              </Body>
-
-            </ListItem>
           </List>
         </Content>
       </Container>

@@ -11,12 +11,14 @@ const OpenButton = ({ url, children }) => {
     }
   }, [url]);
 
-  return <Button full info title={children} onPress={handlePress} />;
+  return <Button
+    style={{ minWidth: 50, minHeight: 50 }}
+    title={children} onPress={handlePress} />;
 };
 export default class OpenURLButton extends React.Component {
   render() {
     return (
-      <View style={{ flexGrow: 1}}>
+      <View style={{ flexGrow: 1 }}>
         <OpenButton url={this.props.url}>{this.props.buttonText}</OpenButton>
       </View>
     );

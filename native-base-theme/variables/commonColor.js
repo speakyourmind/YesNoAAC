@@ -232,6 +232,7 @@ export default {
   listNoteSize: 13,
   listItemSelected: platform === PLATFORM.IOS ? '#007aff' : '#2c3e50',
 
+
   // Progress Bar
   defaultProgressColor: '#E4202D',
   inverseProgressColor: '#1A191B',

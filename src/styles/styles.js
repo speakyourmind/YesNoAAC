@@ -9,6 +9,10 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: '#000'
     },
+    headerText: {
+        fontSize: 18,
+        color: '#fff',
+    },
     input: {
         marginTop: 10,
         marginLeft: 10,
@@ -42,6 +46,7 @@ const styles = StyleSheet.create({
         borderWidth: 2
     },
     listItem:{
+        marginRight:20,
         borderColor: '#2c3e50',
         borderBottomWidth: 1,
     },

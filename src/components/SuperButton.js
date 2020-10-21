@@ -33,14 +33,16 @@ export default class SuperButton extends Component {
                 >
                     <Header >
                         <Left>
-                            <Button transparent onPress={() => {
-                                this.setState({ inEdit: !this.state.inEdit });
-                            }}>
+                            <Button transparent
+                                style={{ minWidth: 50, minHeight: 50 }}
+                                onPress={() => {
+                                    this.setState({ inEdit: !this.state.inEdit });
+                                }}>
                                 <Icon name='ios-arrow-back' color='#ffffff' />
                             </Button>
                         </Left>
                         <Body>
-                        <Title>Edit {key}</Title>
+                            <Title>Edit {key}</Title>
                         </Body>
                         <Right></Right>
                     </Header>
@@ -61,7 +63,7 @@ export default class SuperButton extends Component {
                                 <Separator style={[styles.separator, styles.backgroundDark]} >
                                     <Text color='#ffffff' style={{ fontSize: 18, color: '#fff' }}>TEXT</Text>
                                 </Separator>
-                                <ListItem>
+                                <ListItem style={styles.listItem}>
                                     <Body>
                                         <Text style={styles.titleText}>Title</Text>
                                         <TextInput
@@ -76,7 +78,7 @@ export default class SuperButton extends Component {
                                     </Body>
                                 </ListItem>
 
-                                <ListItem>
+                                <ListItem style={styles.listItem}>
                                     <Body>
                                         <Text style={styles.titleText}>Font Size</Text>
                                         <SettingsSlider
@@ -91,7 +93,8 @@ export default class SuperButton extends Component {
                                         />
                                     </Body>
                                 </ListItem>
-                                <ListItem>
+                                <ListItem style={styles.listItem}>
+                                    
                                     <Body>
                                         <Text style={styles.titleText}>Text Color</Text>
                                         <SettingsColourPicker

@@ -1,7 +1,8 @@
-import { Button, View } from "native-base";
+import { Button, View,Text } from "native-base";
 import React, { Component } from 'react';
 import Icon from 'react-native-ionicons';
 import { SettingsContext } from '../../SettingsContext';
+import { styles } from '../styles/styles';
 
 export default class EditButton extends Component {
 
@@ -11,7 +12,7 @@ export default class EditButton extends Component {
                 <Button transparent onPress={() =>
                     this.context.toggleEditMode()
                 }>
-                    <Icon name='md-create' color='#ffffff' />
+                   <Text style={styles.headerText}>EDIT</Text>
                 </Button>
             </View >
         )

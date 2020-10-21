@@ -42,6 +42,7 @@ export default class SettingsScreen extends React.Component {
             <Button transparent
               accessibilityLabel="Go back"
               accessibilityHint="Navigates to the home screen."
+              style={{minWidth:50,minHeight:50}}
               onPress={() =>
                 this.props.navigation.navigate('Home')
               }>
@@ -96,6 +97,14 @@ export default class SettingsScreen extends React.Component {
                   }}
                 />
               </Body>
+            </ListItem>
+            
+            <ListItem last>
+              <Body>
+                <Text style={styles.titleText}>Disclaimer</Text>
+                <Text>Systems (hardware and software) provided by the SpeakYourMind Foundation are not medical devices and have not been approved for use by the FDA; therefore, these systems shall not be used or depended on to provide medical treatment or to make any form of healthcare decisions. Other means of communication must be used for any medical related purpose.</Text>
+              </Body>
+
             </ListItem>
           </List>
 
